@@ -91,50 +91,6 @@ object SettingsContract {
         )
     }
 
-    object Exposure {
-        private const val id = "exposureNotification"
-        fun getContentUri(context: Context) = Uri.withAppendedPath(getAuthorityUri(context), id)
-        fun getContentType(context: Context) = "vnd.android.cursor.item/vnd.${getAuthority(context)}.$id"
-
-        const val SCANNER_ENABLED = "exposure_scanner_enabled"
-        const val LAST_CLEANUP = "exposure_last_cleanup"
-
-        val PROJECTION = arrayOf(
-            SCANNER_ENABLED,
-            LAST_CLEANUP,
-        )
-    }
-
-    object SafetyNet {
-        private const val id = "safety-net"
-        fun getContentUri(context: Context) = Uri.withAppendedPath(getAuthorityUri(context), id)
-        fun getContentType(context: Context) = "vnd.android.cursor.item/vnd.${getAuthority(context)}.$id"
-
-        const val ENABLED = "safetynet_enabled"
-
-        val PROJECTION = arrayOf(
-            ENABLED
-        )
-    }
-
-    object DroidGuard {
-        private const val id = "droidguard"
-        fun getContentUri(context: Context) = Uri.withAppendedPath(getAuthorityUri(context), id)
-        fun getContentType(context: Context) = "vnd.android.cursor.item/vnd.${getAuthority(context)}.$id"
-
-        const val ENABLED = "droidguard_enabled"
-        const val MODE = "droidguard_mode"
-        const val NETWORK_SERVER_URL = "droidguard_network_server_url"
-        const val FORCE_LOCAL_DISABLED = "droidguard_force_local_disabled"
-
-        val PROJECTION = arrayOf(
-            ENABLED,
-            MODE,
-            NETWORK_SERVER_URL,
-            FORCE_LOCAL_DISABLED,
-        )
-    }
-
     object Profile {
         private const val id = "profile"
         fun getContentUri(context: Context) = Uri.withAppendedPath(getAuthorityUri(context), id)
@@ -146,28 +102,6 @@ object SettingsContract {
         val PROJECTION = arrayOf(
             PROFILE,
             SERIAL
-        )
-    }
-
-    object Location {
-        private const val id = "location"
-        fun getContentUri(context: Context) = Uri.withAppendedPath(getAuthorityUri(context), id)
-        fun getContentType(context: Context) = "vnd.android.cursor.item/vnd.${getAuthority(context)}.$id"
-
-        const val WIFI_MLS = "location_wifi_mls"
-        const val WIFI_MOVING = "location_wifi_moving"
-        const val WIFI_LEARNING = "location_wifi_learning"
-        const val CELL_MLS = "location_cell_mls"
-        const val CELL_LEARNING = "location_cell_learning"
-        const val GEOCODER_NOMINATIM = "location_geocoder_nominatim"
-
-        val PROJECTION = arrayOf(
-            WIFI_MLS,
-            WIFI_MOVING,
-            WIFI_LEARNING,
-            CELL_MLS,
-            CELL_LEARNING,
-            GEOCODER_NOMINATIM,
         )
     }
 

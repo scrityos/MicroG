@@ -51,6 +51,7 @@ android {
         targetSdkVersion androidTargetSdk
         buildConfigField "int", "VERSION_CODE", "$appVersionCode"
         consumerProguardFile 'consumer-rules.pro'
+        buildConfigField "String", "BASE_PACKAGE_NAME", "\"$basePackageName\""
     }
 
     compileOptions {

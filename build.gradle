@@ -4,6 +4,9 @@
  */
 
 buildscript {
+    ext.applicationNamespace = "com.google.android.gms"
+    ext.basePackageName = "com.mgoogle"
+
     ext.cronetVersion = '102.5005.125'
     ext.wearableVersion = '0.1.1'
 
@@ -120,4 +123,3 @@ subprojects {
         if (hasModule("hms", false)) maven {url 'https://developer.huawei.com/repo/'}
     }
 }
-

@@ -1,6 +1,7 @@
 package org.microg.gms.ui;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -10,6 +11,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.google.android.material.color.DynamicColors;
 import com.google.android.gms.R;
 import org.microg.gms.ui.settings.SettingsProvider;
 
@@ -35,6 +37,9 @@ public class MainSettingsActivity extends AppCompatActivity {
 
         for (SettingsProvider settingsProvider : getAllSettingsProviders(this)) {
             settingsProvider.extendNavigation(getNavController());
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            DynamicColors.applyToActivityIfAvailable(this);
         }
 
         appBarConfiguration = new AppBarConfiguration.Builder(getNavController().getGraph()).build();

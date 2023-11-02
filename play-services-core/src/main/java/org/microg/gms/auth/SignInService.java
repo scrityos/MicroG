@@ -16,14 +16,23 @@
 
 package org.microg.gms.auth;
 
-import com.google.android.gms.common.BuildConfig;
+import android.os.RemoteException;
+import android.util.Log;
 
-public class AuthConstants {
-    public static final String DEFAULT_ACCOUNT = "<<default account>>";
-    public static final String SCOPE_GET_ACCOUNT_ID = "^^_account_id_^^";
-    public static final String PROVIDER_METHOD_GET_ACCOUNTS = "get_accounts";
-    public static final String PROVIDER_METHOD_CLEAR_PASSWORD = "clear_password";
-    public static final String PROVIDER_EXTRA_CLEAR_PASSWORD = "clear_password";
-    public static final String PROVIDER_EXTRA_ACCOUNTS = "accounts";
-    public static final String DEFAULT_ACCOUNT_TYPE = BuildConfig.BASE_PACKAGE_NAME;
+import com.google.android.gms.common.internal.GetServiceRequest;
+import com.google.android.gms.common.internal.IGmsCallbacks;
+
+import org.microg.gms.BaseService;
+import org.microg.gms.common.GmsService;
+
+public class SignInService extends BaseService {
+    public SignInService() {
+        super("GmsSignInSvc", GmsService.SIGN_IN);
+    }
+
+    @Override
+    public void handleServiceRequest(IGmsCallbacks callback, GetServiceRequest request, GmsService service) throws RemoteException {
+        Log.d(TAG, "unimplemented Method: handleServiceRequest");
+
+    }
 }

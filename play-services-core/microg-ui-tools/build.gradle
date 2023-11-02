@@ -26,6 +26,8 @@ android {
         versionName version
         minSdkVersion androidMinSdk
         targetSdkVersion androidTargetSdk
+
+        buildConfigField "String", "GMS_APPLICATION_NAMESPACE", "\"$applicationNamespace\""
     }
 
     compileOptions {
@@ -42,5 +44,6 @@ android {
 dependencies {
     implementation "androidx.appcompat:appcompat:$appcompatVersion"
     implementation "androidx.preference:preference:$preferenceVersion"
+    implementation "com.google.android.material:material:$materialVersion"
 }
 
