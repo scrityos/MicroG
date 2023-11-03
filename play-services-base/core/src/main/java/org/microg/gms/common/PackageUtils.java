@@ -51,7 +51,7 @@ public class PackageUtils {
     private static final String GOOGLE_LEGACY_KEY = "58e1c4133f7441ec3d2c270270a14802da47ba0e"; // Seems to be no longer used.
     private static final String[] GOOGLE_PRIMARY_KEYS = {GOOGLE_PLATFORM_KEY, GOOGLE_PLATFORM_KEY_2, GOOGLE_APP_KEY};
 
-    private static final Map<String, String> KNOWN_GOOGLE_PACKAGES;
+    public static final Map<String, String> KNOWN_GOOGLE_PACKAGES;
 
     static {
         KNOWN_GOOGLE_PACKAGES = new HashMap<>();
@@ -84,6 +84,7 @@ public class PackageUtils {
 
     public static boolean isGooglePackage(Context context, String packageName) {
         String signatureDigest = firstSignatureDigest(context, packageName);
+        packageName = PackageSpoofUtils.spoofPackageName(context.getPackageManager(), packageName);
         return isGooglePackage(packageName, signatureDigest);
     }
 
@@ -141,7 +142,7 @@ public class PackageUtils {
         try {
             info = packageManager.getPackageInfo(packageName, PackageManager.GET_SIGNATURES);
         } catch (PackageManager.NameNotFoundException e) {
-            return null;
+            return KNOWN_GOOGLE_PACKAGES.get(packageName);
         }
         if (info != null && info.signatures != null && info.signatures.length > 0) {
             for (Signature sig : info.signatures) {

@@ -60,14 +60,13 @@ class AuthSignInService : BaseService(TAG, GmsService.AUTH_SIGN_IN) {
 
 class AuthSignInServiceImpl(
     private val context: Context,
-    private val lifecycle: Lifecycle,
+    override val lifecycle: Lifecycle,
     private val packageName: String,
     private val account: Account?,
     private val scopes: List<Scope>,
     private val extras: Bundle
 ) : ISignInService.Stub(), LifecycleOwner {
     private val queue = Volley.newRequestQueue(context)
-    override fun getLifecycle(): Lifecycle = lifecycle
 
     override fun silentSignIn(callbacks: ISignInCallbacks, options: GoogleSignInOptions?) {
         Log.d(TAG, "$packageName:silentSignIn($options)")

@@ -19,11 +19,5 @@
         <meta-data
             android:name="org.microg.gms.settings.auth_include_android_id"
             android:value="false" />
-        <meta-data
-            android:name="org.microg.gms.settings.droidguard_enabled"
-            android:value="true" />
-        <meta-data
-            android:name="org.microg.gms.settings.safetynet_enabled"
-            android:value="true" />
     </application>
 </manifest>

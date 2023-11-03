@@ -37,6 +37,7 @@ public class MainSettingsActivity extends AppCompatActivity {
 
         for (SettingsProvider settingsProvider : getAllSettingsProviders(this)) {
             settingsProvider.extendNavigation(getNavController());
+        }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             DynamicColors.applyToActivityIfAvailable(this);

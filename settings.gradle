@@ -16,12 +16,9 @@ def hasModule = (String name, boolean enabledByDefault) -> {
   return localProperties.getProperty("modules." + name, enabledByDefault.toString()).toBoolean()
 }
 
-include ':fake-signature'
 include ':safe-parcel-processor'
-include ':vending-app'
 
 include ':play-services-auth'
-include ':play-services-auth-api-phone'
 include ':play-services-auth-base'
 include ':play-services-base'
 include ':play-services-basement'
@@ -42,7 +39,6 @@ include ':play-services-core-proto'
 sublude ':play-services-basement:ktx'
 sublude ':play-services-tasks:ktx'
 
-sublude ':play-services-auth-api-phone:core'
 sublude ':play-services-base:core'
 sublude ':play-services-cast:core'
 sublude ':play-services-cast-framework:core'
