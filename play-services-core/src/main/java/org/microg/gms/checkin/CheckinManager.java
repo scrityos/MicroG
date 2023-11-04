@@ -18,6 +18,7 @@ package org.microg.gms.checkin;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
+import android.os.Build;
 import android.content.ContentResolver;
 import android.content.Context;
 
@@ -57,8 +58,20 @@ public class CheckinManager {
         }
         CheckinRequest request = CheckinClient.makeRequest(context,
                 new DeviceConfiguration(context), Utils.getDeviceIdentifier(context),
-                Utils.getPhoneInfo(context), info, Utils.getLocale(context), accounts);
+                Utils.getPhoneInfo(context), info, Utils.getLocale(context), accounts, isHuaweiDevice());
         return handleResponse(context, CheckinClient.request(request));
+    }
+
+    private static boolean isHuaweiDevice() {
+        String brand = Build.BRAND.toLowerCase().replace(" ", "");
+        String manufacturer = Build.MANUFACTURER.toLowerCase().replace(" ", "");
+
+        boolean isEmui = Build.DISPLAY.toLowerCase().startsWith("emui");
+        boolean isHuawei = manufacturer.contains("huawei") || brand.contains("huawei") || brand.contains("华为");
+        boolean isHonor = manufacturer.contains("honor") || brand.contains("honor");
+        boolean isNova = manufacturer.contains("nova") || brand.contains("nova");
+
+        return (isEmui || isHuawei || isHonor || isNova);
     }
 
     private static LastCheckinInfo handleResponse(Context context, CheckinResponse response) {
