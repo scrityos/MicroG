@@ -75,6 +75,8 @@ import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 import static android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT;
 import static org.microg.gms.auth.AuthPrefs.isAuthVisible;
+import static org.microg.gms.checkin.CheckinPreferences.isSpoofingEnabled;
+import static org.microg.gms.checkin.CheckinPreferences.setSpoofingEnabled;
 import static org.microg.gms.common.Constants.GMS_PACKAGE_NAME;
 import static org.microg.gms.common.Constants.GMS_VERSION_CODE;
 import static org.microg.gms.common.Constants.GOOGLE_GMS_PACKAGE_NAME;
@@ -151,7 +153,7 @@ public class LoginActivity extends AssistantActivity {
             init();
         } else {
             setMessage(R.string.auth_before_connect);
-            setBackButtonText(android.R.string.cancel);
+            setSpoofButtonText(R.string.brand_spoof_button);
             setNextButtonText(R.string.auth_sign_in);
         }
     }
@@ -161,6 +163,10 @@ public class LoginActivity extends AssistantActivity {
         super.onNextButtonClicked();
         state++;
         if (state == 1) {
+            if (isSpoofingEnabled(this)) {
+                LastCheckinInfo.clear(this);
+                setSpoofingEnabled(this, false);
+            }
             init();
         } else if (state == -1) {
             setResult(RESULT_CANCELED);
@@ -168,18 +174,26 @@ public class LoginActivity extends AssistantActivity {
         }
     }
 
+
     @Override
-    protected void onBackButtonClicked() {
-        super.onBackButtonClicked();
-        state--;
-        if (state == -1) {
+    protected void onHuaweiButtonClicked() {
+        super.onHuaweiButtonClicked();
+        state++;
+        if (state == 1) {
+            if (!isSpoofingEnabled(this)) {
+                LastCheckinInfo.clear(this);
+                setSpoofingEnabled(this, true);
+            }
+            init();
+        } else if (state == -1) {
+            setResult(RESULT_CANCELED);
             finish();
         }
     }
 
     private void init() {
         setTitle(R.string.just_a_sec);
-        setBackButtonText(null);
+        setSpoofButtonText(null);
         setNextButtonText(null);
         View loading = getLayoutInflater().inflate(R.layout.login_assistant_loading, authContent, false);
         authContent.removeAllViews();

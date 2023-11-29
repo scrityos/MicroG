@@ -65,7 +65,7 @@
             android:divider="?attr/dividerHorizontal"
             android:orientation="vertical">
 
-            <com.google.android.material.button.MaterialButton
+            <Button
                 style="?android:attr/buttonBarButtonStyle"
                 android:id="@+id/permission_allow_button"
                 android:layout_width="match_parent"
@@ -73,9 +73,9 @@
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
                 android:text="@string/allow">
-            </com.google.android.material.button.MaterialButton>
+            </Button>
 
-            <com.google.android.material.button.MaterialButton
+            <Button
                 style="?android:attr/buttonBarButtonStyle"
                 android:id="@+id/permission_deny_button"
                 android:layout_width="match_parent"
@@ -83,7 +83,7 @@
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
                 android:text="@string/deny">
-            </com.google.android.material.button.MaterialButton>
+            </Button>
 
         </LinearLayout>
 

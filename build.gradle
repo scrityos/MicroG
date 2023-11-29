@@ -82,7 +82,7 @@ allprojects {
     apply plugin: 'idea'
 
     group = 'org.microg.gms'
-    ext.appVersionCode = 234355000
+    ext.appVersionCode = 234414000
     ext.baseVersion = ext.appVersionCode.toString()[0..1] + '.' + ext.appVersionCode.toString()[2..3] + '.' + ext.appVersionCode.toString()[4..5]
     version = "0.3.0."+ext.baseVersion.replaceAll("\\.", "")
     ext.isReleaseVersion = false
@@ -92,6 +92,5 @@ subprojects {
     repositories {
         mavenCentral()
         google()
-        if (hasModule("hms", false)) maven {url 'https://developer.huawei.com/repo/'}
     }
 }
