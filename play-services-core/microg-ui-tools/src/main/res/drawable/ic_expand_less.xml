@@ -17,14 +17,17 @@
   -->
 
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-        android:width="24dp"
-        android:height="24dp"
-        android:tint="?attr/colorControlNormal"
-        android:viewportHeight="24"
-        android:viewportWidth="24">
-
-    <path
-        android:fillColor="#ffffff"
-        android:pathData="M12.0,8.0l-6.0,6.0 1.41,1.41L12.0,10.83l4.59,4.58L18.0,14.0z"/>
-
+    android:width="24dp"
+    android:height="24dp"
+    android:tint="?attr/colorControlNormal"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <group>
+        <clip-path android:pathData="M0 0H24V24H0z" />
+        <group>
+            <path
+                android:fillColor="#ff000000"
+                android:pathData="M7.4 14.7L6.7 14 12 8.68l5.3 5.3-0.7 0.71-4.6-4.6-4.6 4.6Z" />
+        </group>
+    </group>
 </vector>
