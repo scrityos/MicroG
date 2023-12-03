@@ -232,4 +232,21 @@ This can take a couple of minutes."</string>
     <string name="push_notifications_summary_manual">ON / Manual: %s</string>
     <string name="push_notifications_summary_values_seconds">%s seconds</string>
     <string name="push_notifications_summary_values_minutes">%s minutes</string>
+
+    <!--Redesign strings-->
+
+    <string name="wstxda">WSTxda</string>
+    <string name="developer">Developer</string>
+    <string name="developer_link">https://linktr.ee/wstxda</string>
+    <string name="github">GitHub</string>
+    <string name="github_source">Source code repository</string>
+    <string name="github_link">https://github.com/WSTxda/MicroG-RE</string>
+    <string name="manage_google_account">Manage your Google account</string>
+    <string name="manage_google_account_summary">Manage your Google account information</string>
+    <string name="manage_yt_activities">Manage YouTube activities</string>
+    <string name="manage_yt_activities_summary">Manage YouTube activities such as watch or search history</string>
+    <string name="pref_network_google_enabled_summary">If disabled, all connections to Google servers usually done by MicroG will be denied. This overrides service specific settings</string>
+    <string name="pref_network_google_enabled">Allow connecting to Google servers</string>
+    <string name="pref_network_google_use_tor">Connect to Google via Tor network</string>
+    <string name="pref_network_google_use_tor_summary">Requires Orbot to be installed\\nNot yet supported</string>
 </resources>

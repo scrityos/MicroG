@@ -16,33 +16,38 @@
 
 <resources>
 
-    <style name="AppTheme" parent="AppTheme.Base" />
+    <style name="ActionBarTheme" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">?android:colorBackground</item>
+    </style>
 
-    <style name="AppTheme.Base" parent="Theme.AppCompat.DayNight">
-        <item name="actionBarStyle">@style/AppTheme.ActionBar</item>
+    <style name="AppTheme" parent="AppThemeBase" />
+
+    <style name="AppThemeBase" parent="Theme.AppCompat.DayNight">
+        <item name="actionBarStyle">@style/ActionBarTheme</item>
         <item name="colorBackgroundFloating">@color/theme_foreground_light</item>
         <item name="android:colorBackground">@color/theme_background_light</item>
+        <item name="android:actionBarSize">48dip</item>
+        <item name="android:colorAccent">@color/theme_accent_light</item>
         <item name="android:statusBarColor">?android:colorBackground</item>
         <item name="android:navigationBarColor">?android:colorBackground</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowLightNavigationBar">true</item>
     </style>
 
-    <style name="AppTheme.ActionBar" parent="Widget.AppCompat.ActionBar">
-        <item name="android:background">?android:colorBackground</item>
-    </style>
+    <style name="LoginTheme" parent="LoginThemeBase" />
 
-    <style name="AppTheme.Dialog" parent="AppTheme.Base">
+    <style name="AppTheme.Dialog" parent="AppTheme">
         <item name="android:windowIsFloating">true</item>
     </style>
 
-    <style name="Theme.LoginBlue" parent="Theme.LoginBlue.Base" />
-
-    <style name="Theme.LoginBlue.Base" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/theme_accent_light</item>
-        <item name="colorPrimaryDark">@color/theme_accent_light</item>
+    <style name="LoginThemeBase" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:colorBackground">@color/theme_background_light</item>
+        <item name="android:colorAccent">@color/theme_accent_light</item>
+        <item name="android:statusBarColor">?android:colorBackground</item>
         <item name="android:navigationBarColor">?android:colorBackground</item>
+        <item name="colorPrimary">?android:colorBackground</item>
+        <item name="colorPrimaryDark">?android:colorBackground</item>
+        <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowLightNavigationBar">true</item>
     </style>
 </resources>
