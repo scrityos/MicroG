@@ -9,12 +9,13 @@
     android:title="Push notifications">
 
     <org.microg.gms.ui.SwitchBarPreference
-        android:title="@string/gcm_enable_switch"
         android:key="pref_push_enabled"
-        android:persistent="false" />
+        android:persistent="false"
+        android:title="@string/gcm_enable_switch" />
 
     <PreferenceCategory
         android:key="prefcat_push_apps"
+        android:layout="@layout/preference_category"
         android:title="@string/prefcat_push_apps_title">
         <Preference
             android:enabled="false"
@@ -30,12 +31,10 @@
         android:key="prefcat_push_status"
         android:layout="@layout/preference_category_no_label">
         <Preference
+            android:icon="@drawable/ic_status"
             android:key="pref_push_status"
-            android:enabled="false"
             android:title="@string/pref_info_status"
             tools:summary="Connected since 15 minutes ago" />
-    </PreferenceCategory>
-    <PreferenceCategory android:layout="@layout/preference_category_no_label">
         <org.microg.gms.ui.TextPreference
             android:icon="@drawable/ic_info_outline"
             android:selectable="false"

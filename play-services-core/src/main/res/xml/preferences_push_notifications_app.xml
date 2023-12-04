@@ -7,8 +7,8 @@
 
     <org.microg.gms.ui.AppHeadingPreference
         android:key="pref_push_app_heading"
-        tools:icon="@android:mipmap/sym_def_app_icon"
-        tools:title="@tools:sample/lorem" />
+        tools:icon="@mipmap/ic_launcher"
+        tools:title="@string/gms_settings_name" />
 
     <PreferenceCategory
         android:key="prefcat_push_app_settings"
@@ -16,6 +16,7 @@
 
         <SwitchPreference
             android:defaultValue="true"
+            android:icon="@drawable/ic_push_register"
             android:key="pref_push_app_allow_register"
             android:persistent="false"
             android:summary="@string/pref_push_app_allow_register_summary"
@@ -23,10 +24,16 @@
 
         <SwitchPreference
             android:defaultValue="true"
+            android:icon="@drawable/ic_launch_push"
             android:key="pref_push_app_wake_for_delivery"
             android:persistent="false"
             android:summary="@string/pref_push_app_wake_for_delivery_summary"
             android:title="@string/pref_push_app_wake_for_delivery_title" />
+
+        <Preference
+            android:icon="@drawable/ic_unregister"
+            android:key="pref_push_app_unregister"
+            android:title="@string/gcm_unregister_app" />
 
     </PreferenceCategory>
 
@@ -34,12 +41,7 @@
         android:key="prefcat_push_app_unregister"
         android:layout="@layout/preference_category_no_label">
         <Preference
-            android:key="pref_push_app_unregister"
-            android:title="@string/gcm_unregister_app" />
-    </PreferenceCategory>
-
-    <PreferenceCategory android:layout="@layout/preference_category_no_label">
-        <Preference
+            android:icon="@drawable/ic_info_outline"
             android:key="pref_push_app_status"
             android:selectable="false"
             tools:summary="Messages: 1000 (37 MB)\nLast message: 22 min ago\nRegistered since: 3 month ago" />
