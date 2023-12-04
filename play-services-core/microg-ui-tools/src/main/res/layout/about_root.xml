@@ -16,45 +16,48 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingTop="32dip">
 
     <ImageView
         android:id="@android:id/icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:padding="10dp"
-        android:src="@android:drawable/ic_dialog_alert"/>
+        android:src="@android:drawable/sym_def_app_icon" />
 
     <TextView
         android:id="@android:id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dip"
         android:gravity="center_horizontal"
         android:text="@string/about_root_title"
-        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-        android:textColor="?attr/colorAccent"/>
+        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
     <TextView
         android:id="@android:id/summary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:visibility="gone"
         android:text="@string/about_root_summary"
         android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-        android:textColor="?attr/colorAccent"/>
+        android:textColor="?attr/colorAccent"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/about_version"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dip"
         android:text="@string/about_root_version"
-        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+        android:textColor="?android:textColorSecondary" />
 
     <TextView
         android:id="@android:id/title"
@@ -62,11 +65,11 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dip"
         android:paddingLeft="?attr/listPreferredItemPaddingLeft"
+        android:paddingTop="32dp"
         android:paddingRight="?attr/listPreferredItemPaddingRight"
-        android:paddingTop="16dip"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:text="@string/about_root_libraries"
-        android:textColor="?attr/colorAccent"/>
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="?android:textColorPrimary" />
 
     <ListView
         android:id="@android:id/list"
