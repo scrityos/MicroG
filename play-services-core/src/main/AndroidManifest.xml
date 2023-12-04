@@ -85,8 +85,8 @@
         android:allowBackup="true"
         android:forceQueryable="true"
         android:fullBackupOnly="true"
-        android:icon="@mipmap/ic_app"
-        android:roundIcon="@mipmap/ic_app"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:label="@string/gms_app_name"
         android:multiArch="true"
         android:networkSecurityConfig="@xml/network_security_config"
@@ -358,10 +358,10 @@
         <!-- microG Settings activity -->
         <activity
             android:name="org.microg.gms.ui.MainSettingsActivity"
-            android:icon="@mipmap/ic_app_settings"
+            android:icon="@mipmap/ic_launcher"
             android:label="@string/gms_settings_name"
             android:process=":ui"
-            android:roundIcon="@mipmap/ic_app_settings"
+            android:roundIcon="@mipmap/ic_launcher_round"
             android:taskAffinity="org.microg.gms.settings">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -373,9 +373,9 @@
         <!-- Allow microG Settings from opening by other applications -->
         <activity-alias
             android:name="org.microg.gms.ui.SettingsActivity"
-            android:icon="@mipmap/ic_app_settings"
+            android:icon="@mipmap/ic_launcher"
             android:label="@string/gms_settings_name"
-            android:roundIcon="@mipmap/ic_app_settings"
+            android:roundIcon="@mipmap/ic_launcher_round"
             android:process=":ui"
             android:targetActivity="org.microg.gms.ui.MainSettingsActivity"
             android:taskAffinity="org.microg.gms.settings">
@@ -386,10 +386,10 @@
 
         <activity
             android:name="org.microg.gms.ui.SettingsDashboardActivity"
-            android:icon="@mipmap/ic_app_settings"
+            android:icon="@mipmap/ic_launcher"
             android:label="Legacy microG Settings"
             android:process=":ui"
-            android:roundIcon="@mipmap/ic_app_settings"
+            android:roundIcon="@mipmap/ic_launcher_round"
             android:taskAffinity="org.microg.gms.settings" />
 
         <!-- microG Settings embedded in System Settings on SDK 23 and newer -->
