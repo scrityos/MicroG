@@ -1,28 +1,29 @@
-<img src="http://i.imgur.com/hXY4lcC.png" height="42px" alt="microG" /> Services Core (GmsCore)
-=======
+# MicroG RE (MicroG Services Redesign)
 
-A 1:1 version of [microG](https://github.com/microg/GmsCore) designed for ReVanced apps.
+[MicroG](https://github.com/microg/GmsCore) fork designed for ReVanced apps with beautiful design
 
-A big thanks to [Shadow578](https://github.com/shadow578) for its first implementation.
+[![Android](https://img.shields.io/badge/Platform-Android-green.svg?style=flat-square)](https://www.android.com) [![API](https://img.shields.io/badge/API-23%2B-orange.svg?logo=android&style=flat-square)](https://developer.android.com/studio/releases/platforms) [![Release](https://img.shields.io/github/v/release/WSTxda/MicroG-RE?color=blue&label=Release&style=flat-square)](https://github.com/WSTxda/MicroG-RE/releases) [![Downloads](https://img.shields.io/github/downloads/WSTxda/MicroG-RE/total?color=brightgrey&style=flat-square)](https://github.com/WSTxda/MicroG-RE/releases)
 
-## Notable changes
+![alt text](https://raw.githubusercontent.com/WSTxda/MicroG-RE/main/Images/Banner.svg)
 
-- No longer a system app
-- Package name changed from `com.google.android.gms` to `com.mgoogle.android.gms` to support installation alongside the official MicroG
-- Removed unnecessary features:
-  - Ads
-  - Analytics
-  - Car
-  - Droidguard
-  - Exposure-Notifications
-  - Feedback
-  - Firebase
-  - Games
-  - Maps
-  - Recovery
-  - SafetyNet
-  - Search
-  - TapAndPay
-  - Wallet
-  - Wear-Api
-- Removed all permissions, as none are required for Google authentication
+**Download MicroG RE**
+
+[<img src="https://raw.githubusercontent.com/WSTxda/QP-Gallery-Releases/master/Images/GitHub.svg"
+alt='Get it on GitHub'
+height="80">](https://github.com/WSTxda/MicroG-RE/releases)
+
+**Support list**
+
+[ReVanced](https://github.com/ReVanced/revanced-patches)
+
+[ReVanced Extended (RVX)](https://github.com/inotia00/revanced-patches)
+
+[ReVanced (Android6-7)](https://github.com/kitadai31/revanced-patches-android6-7)
+
+**Donate**
+
+[<img src="https://raw.githubusercontent.com/WSTxda/QP-Gallery-Releases/master/Images/PayPal.svg"
+alt='Donate with PayPal'
+height="80">](https://bit.ly/2lV0E6u) [<img src="https://raw.githubusercontent.com/WSTxda/QP-Gallery-Releases/master/Images/BMC.svg"
+alt='Donate with BMC'
+height="80">](https://www.buymeacoffee.com/wstxda)
