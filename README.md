@@ -4,7 +4,7 @@
 
 [![Android](https://img.shields.io/badge/Platform-Android-green.svg?style=flat-square)](https://www.android.com) [![API](https://img.shields.io/badge/API-23%2B-orange.svg?logo=android&style=flat-square)](https://developer.android.com/studio/releases/platforms) [![Release](https://img.shields.io/github/v/release/WSTxda/MicroG-RE?color=blue&label=Release&style=flat-square)](https://github.com/WSTxda/MicroG-RE/releases) [![Downloads](https://img.shields.io/github/downloads/WSTxda/MicroG-RE/total?color=brightgrey&style=flat-square)](https://github.com/WSTxda/MicroG-RE/releases)
 
-![alt text](https://raw.githubusercontent.com/WSTxda/MicroG-RE/main/Images/Banner.svg)
+![alt text](https://raw.githubusercontent.com/WSTxda/MicroG-RE/master/Images/Banner.svg)
 
 **Download MicroG RE**
 
@@ -17,6 +17,8 @@ height="80">](https://github.com/WSTxda/MicroG-RE/releases)
 [ReVanced](https://github.com/ReVanced/revanced-patches)
 
 [ReVanced Extended (RVX)](https://github.com/inotia00/revanced-patches)
+
+[YouTube Advanced (REX)](https://github.com/YT-Advanced/ReX-patches)
 
 [ReVanced (Android6-7)](https://github.com/kitadai31/revanced-patches-android6-7)
 
