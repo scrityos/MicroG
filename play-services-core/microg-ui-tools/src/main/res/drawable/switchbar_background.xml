@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2013-2017 microG Project Team
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,5 +15,5 @@
   -->
 
 <color xmlns:android="http://schemas.android.com/apk/res/android"
-       android:color="@color/switchbar_background_color"/>
+    android:color="@color/switchbar_background_color" />
 
