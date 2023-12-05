@@ -39,7 +39,7 @@
     <permission-tree
         android:name="${basePackageName}.android.googleapps.permission.GOOGLE_AUTH"
         android:icon="@drawable/proprietary_auth_ic_scope_icon_default" />
-        
+
     <permission
         android:name="${basePackageName}.gms.STATUS_BROADCAST"
         android:label="@string/perm_status_broadcast_label"
@@ -62,7 +62,8 @@
     <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
     <uses-permission android:name="android.permission.READ_SYNC_STATS" />
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <uses-permission android:name="${basePackageName}.android.c2dm.permission.RECEIVE" />
@@ -90,7 +91,8 @@
         android:label="@string/gms_app_name"
         android:multiArch="true"
         android:networkSecurityConfig="@xml/network_security_config"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:targetApi="r">
 
         <library android:name="${basePackageName}.android.gms" />
 
@@ -359,14 +361,13 @@
         <activity
             android:name="org.microg.gms.ui.MainSettingsActivity"
             android:icon="@mipmap/ic_launcher"
-            android:label="@string/gms_settings_name"
             android:process=":ui"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:taskAffinity="org.microg.gms.settings">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.APPLICATION_PREFERENCES" />
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
@@ -439,7 +440,7 @@
         <activity
             android:name="org.microg.gms.ui.LegacyAccountSettingsActivity"
             android:process=":ui"
-            android:taskAffinity="org.microg.gms.settings"></activity>
+            android:taskAffinity="org.microg.gms.settings" />
 
         <activity
             android:name="org.microg.gms.accountsettings.ui.MainActivity"
