@@ -15,7 +15,6 @@
   -->
 
 <account-authenticator xmlns:android="http://schemas.android.com/apk/res/android"
-    android:accountPreferences="@xml/preferences_auth"
     android:accountType="@string/var_authenticator_account_type"
     android:customTokens="true"
     android:icon="@drawable/ic_microg_login_large"
