@@ -137,8 +137,8 @@ This can take a couple of minutes"</string>
     <string name="pref_info_status">Status</string>
     <string name="pref_more_settings">More</string>
 
-    <string name="pref_add_account_title">Account</string>
-    <string name="pref_add_account_summary">Add Google account</string>
+    <string name="pref_add_account_title">Accounts</string>
+    <string name="pref_add_account_summary">Login in new Google account</string>
     <string name="pref_gcm_enable_mcs_summary">Cloud Messaging is a push notification provider used by many third-party applications. To use it you must enable device registration</string>
     <string name="pref_gcm_heartbeat_title">Cloud Messaging heartbeat interval</string>
     <string name="pref_gcm_heartbeat_summary">The interval in seconds for the system to heartbeat the Google servers. Increasing this number will reduce battery consumption, but might cause delays on push messages.\nDeprecated, will be replaced in future release</string>
@@ -233,7 +233,16 @@ This can take a couple of minutes"</string>
     <string name="push_notifications_summary_values_seconds">%s seconds</string>
     <string name="push_notifications_summary_values_minutes">%s minutes</string>
 
-    <!--Redesign strings-->
+    <!-- account settings-->
+
+    <string name="pref_accounts_summary">Add and manage Google accounts</string>
+    <string name="prefcat_accounts_options_title">Options</string>
+    <string name="prefcat_accounts_login_accounts_title">Logged in</string>
+    <string name="pref_accounts_add_account_title">Add account</string>
+    <string name="pref_accounts_manage_accounts_title">Manage accounts</string>
+    <string name="pref_accounts_manage_accounts_summary">Open device accounts manager</string>
+
+    <!-- Redesign strings-->
 
     <string name="wstxda">WSTxda</string>
     <string name="developer">Developer</string>
