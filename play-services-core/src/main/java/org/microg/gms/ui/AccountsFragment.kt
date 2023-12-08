@@ -41,7 +41,6 @@ class AccountsFragment : PreferenceFragmentCompat() {
         }
     }
 
-
     private fun showConfirmationDialog(accountName: String) {
         val alertDialogBuilder = AlertDialog.Builder(requireContext())
         alertDialogBuilder.apply {
@@ -52,7 +51,6 @@ class AccountsFragment : PreferenceFragmentCompat() {
                     val preferenceCategory =
                         findPreference<PreferenceCategory>("prefcat_current_accounts")
                     preferenceCategory?.removeAll()
-                    updateAccountList()
                 } else {
                     Log.e(TAG, "Failed to remove account: $accountName")
                 }
@@ -77,25 +75,6 @@ class AccountsFragment : PreferenceFragmentCompat() {
             }
         }
         return false
-    }
-
-    private fun updateAccountList() {
-        val accountManager = AccountManager.get(requireContext())
-        val accounts = accountManager.getAccountsByType(AuthConstants.DEFAULT_ACCOUNT_TYPE)
-
-        val preferenceCategory = findPreference<PreferenceCategory>("prefcat_current_accounts")
-        accounts.forEach { account ->
-            Preference(requireContext()).apply {
-                title = account.name
-                icon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_google_logo)
-                preferenceCategory?.addPreference(this)
-
-                setOnPreferenceClickListener {
-                    showConfirmationDialog(account.name)
-                    true
-                }
-            }
-        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
