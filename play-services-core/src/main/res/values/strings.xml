@@ -233,7 +233,7 @@ This can take a couple of minutes"</string>
     <string name="push_notifications_summary_values_seconds">%s seconds</string>
     <string name="push_notifications_summary_values_minutes">%s minutes</string>
 
-    <!-- account settings-->
+    <!-- Account settings-->
 
     <string name="pref_accounts_summary">Add and manage Google accounts</string>
     <string name="prefcat_accounts_options_title">Options</string>
@@ -241,6 +241,13 @@ This can take a couple of minutes"</string>
     <string name="pref_accounts_add_account_title">Add account</string>
     <string name="pref_accounts_manage_accounts_title">Manage accounts</string>
     <string name="pref_accounts_manage_accounts_summary">Open device accounts manager</string>
+
+    <!-- Account remove dialog-->
+
+    <string name="dialog_title_remove_account">Remove account</string>
+    <string name="dialog_message_remove_account">Are you sure you want to remove this account?\n\nSome services and functions will be unavailable, your data will not be lost</string>
+    <string name="dialog_confirm_button">Remove</string>
+    <string name="dialog_cancel_button">Cancel</string>
 
     <!-- Redesign strings-->
 
