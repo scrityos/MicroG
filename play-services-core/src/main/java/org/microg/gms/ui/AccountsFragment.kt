@@ -21,22 +21,38 @@ class AccountsFragment : PreferenceFragmentCompat() {
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         addPreferencesFromResource(R.xml.preferences_accounts)
+        updateAccountList()
+    }
 
+    override fun onResume() {
+        super.onResume()
+        updateAccountList()
+    }
+
+    private fun updateAccountList() {
         val accountManager = AccountManager.get(requireContext())
         val accounts = accountManager.getAccountsByType(AuthConstants.DEFAULT_ACCOUNT_TYPE)
 
-        findPreference<Preference>("pref_current_accounts_none")?.isVisible = accounts.isEmpty()
         val preferenceCategory = findPreference<PreferenceCategory>("prefcat_current_accounts")
-        accounts.forEach { account ->
-            Preference(requireContext()).apply {
-                title = account.name
-                icon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_google_logo)
-                preferenceCategory?.addPreference(this)
 
-                setOnPreferenceClickListener {
-                    showConfirmationDialog(account.name)
-                    true
+        if (accounts.isEmpty()) {
+            preferenceCategory?.isVisible = false
+        } else {
+            preferenceCategory?.isVisible = true
+            preferenceCategory?.removeAll()
+
+            accounts.forEach { account ->
+                val newPreference = Preference(requireContext()).apply {
+                    title = account.name
+                    icon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_google_logo)
+                    preferenceCategory?.addPreference(this)
+
+                    setOnPreferenceClickListener {
+                        showConfirmationDialog(account.name)
+                        true
+                    }
                 }
+                preferenceCategory?.addPreference(newPreference)
             }
         }
     }
@@ -48,9 +64,6 @@ class AccountsFragment : PreferenceFragmentCompat() {
             setMessage(getString(R.string.dialog_message_remove_account))
             setPositiveButton(getString(R.string.dialog_confirm_button)) { _, _ ->
                 if (removeAccount(accountName)) {
-                    val preferenceCategory =
-                        findPreference<PreferenceCategory>("prefcat_current_accounts")
-                    preferenceCategory?.removeAll()
                 } else {
                     Log.e(TAG, "Failed to remove account: $accountName")
                 }
@@ -69,8 +82,13 @@ class AccountsFragment : PreferenceFragmentCompat() {
         val accountToRemove = accounts.firstOrNull { it.name == accountName }
         accountToRemove?.let {
             return try {
-                accountManager.removeAccount(it, null, null).result
+                val removedSuccessfully = accountManager.removeAccount(it, null, null).result
+                if (removedSuccessfully) {
+                    updateAccountList()
+                }
+                removedSuccessfully
             } catch (e: Exception) {
+                Log.e(TAG, "Error removing account: $accountName", e)
                 false
             }
         }
