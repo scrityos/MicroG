@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.preference.Preference
@@ -61,18 +62,21 @@ class AccountsFragment : PreferenceFragmentCompat() {
         val alertDialogBuilder = AlertDialog.Builder(requireContext())
         alertDialogBuilder.apply {
             setTitle(getString(R.string.dialog_title_remove_account))
-            setMessage(getString(R.string.dialog_message_remove_account))
+            setMessage(getString(R.string.dialog_message_remove_account, accountName))
             setPositiveButton(getString(R.string.dialog_confirm_button)) { _, _ ->
-                if (removeAccount(accountName)) {
-                } else {
-                    Log.e(TAG, "Failed to remove account: $accountName")
-                }
+                removeAccount(accountName)
+                val toastMessage = getString(R.string.toast_remove_account_success, accountName)
+                showToast(toastMessage)
             }
             setNegativeButton(getString(R.string.dialog_cancel_button)) { dialog, _ ->
                 dialog.dismiss()
             }
             create().show()
         }
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 
     private fun removeAccount(accountName: String): Boolean {
