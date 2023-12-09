@@ -62,7 +62,7 @@ class AccountsFragment : PreferenceFragmentCompat() {
         val alertDialogBuilder = AlertDialog.Builder(requireContext())
         alertDialogBuilder.apply {
             setTitle(getString(R.string.dialog_title_remove_account))
-            setMessage(getString(R.string.dialog_message_remove_account, accountName))
+            setMessage(getString(R.string.dialog_message_remove_account))
             setPositiveButton(getString(R.string.dialog_confirm_button)) { _, _ ->
                 removeAccount(accountName)
                 val toastMessage = getString(R.string.toast_remove_account_success, accountName)
