@@ -248,7 +248,7 @@ This can take a couple of minutes"</string>
     <string name="dialog_message_remove_account">Are you sure you want to remove this account?\n\nSome services and functions will be unavailable\n\nYour data will not be lost</string>
     <string name="dialog_confirm_button">Remove</string>
     <string name="dialog_cancel_button">Cancel</string>
-    <string name="toast_remove_account_success">%s removed successfully</string>
+    <string name="toast_remove_account_success">%s removed</string>
 
     <!-- Redesign strings-->
 

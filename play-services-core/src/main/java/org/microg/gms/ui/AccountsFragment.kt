@@ -67,6 +67,7 @@ class AccountsFragment : PreferenceFragmentCompat() {
                 removeAccount(accountName)
                 val toastMessage = getString(R.string.toast_remove_account_success, accountName)
                 showToast(toastMessage)
+                updateAccountList()
             }
             setNegativeButton(getString(R.string.dialog_cancel_button)) { dialog, _ ->
                 dialog.dismiss()
