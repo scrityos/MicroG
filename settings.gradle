@@ -40,6 +40,7 @@ sublude ':play-services-basement:ktx'
 sublude ':play-services-tasks:ktx'
 
 sublude ':play-services-base:core'
+sublude ':play-services-base:core:package'
 sublude ':play-services-cast:core'
 sublude ':play-services-cast-framework:core'
 include ':play-services-conscrypt-provider-core'
