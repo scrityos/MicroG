@@ -17,14 +17,17 @@
 package org.microg.tools.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -106,6 +109,14 @@ public abstract class AbstractAboutFragment extends Fragment {
         collectLibraries(libraries);
         Collections.sort(libraries);
         ((ListView) aboutRoot.findViewById(android.R.id.list)).setAdapter(new LibraryAdapter(getContext(), libraries.toArray(new Library[libraries.size()])));
+
+        Button btnCheckUpdates = aboutRoot.findViewById(R.id.btnCheckUpdates);
+        btnCheckUpdates.setOnClickListener(v -> {
+            String url = "https://github.com/WSTxda/MicroG-RE/releases/latest";
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(url));
+            startActivity(intent);
+        });
 
         return aboutRoot;
     }

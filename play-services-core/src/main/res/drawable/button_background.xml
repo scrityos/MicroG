@@ -11,7 +11,7 @@
         android:color="@android:color/transparent" />
     <padding
         android:bottom="6dip"
-        android:left="12dip"
-        android:right="12dip"
+        android:left="6dip"
+        android:right="6dip"
         android:top="6dip" />
 </shape>
