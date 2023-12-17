@@ -5,5 +5,5 @@
   -->
 
 <resources>
-    <color name="ic_app_background">#C0CA33</color>
+    <color name="ic_launcher_background">#ffffffff</color>
 </resources>

@@ -16,11 +16,17 @@
 
 <resources>
 
+    <style name="AppTheme" parent="AppThemeBase" />
+
+    <style name="LoginTheme" parent="LoginThemeBase" />
+
     <style name="ActionBarTheme" parent="Widget.AppCompat.ActionBar">
         <item name="android:background">?android:colorBackground</item>
     </style>
 
-    <style name="AppTheme" parent="AppThemeBase" />
+    <style name="AppTheme.Dialog" parent="AppTheme">
+        <item name="android:windowIsFloating">true</item>
+    </style>
 
     <style name="AppThemeBase" parent="Theme.AppCompat.DayNight">
         <item name="actionBarStyle">@style/ActionBarTheme</item>
@@ -34,12 +40,6 @@
         <item name="android:windowLightNavigationBar">true</item>
     </style>
 
-    <style name="LoginTheme" parent="LoginThemeBase" />
-
-    <style name="AppTheme.Dialog" parent="AppTheme">
-        <item name="android:windowIsFloating">true</item>
-    </style>
-
     <style name="LoginThemeBase" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:colorBackground">@color/theme_background_light</item>
         <item name="android:colorAccent">@color/theme_accent_light</item>
@@ -50,4 +50,5 @@
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowLightNavigationBar">true</item>
     </style>
+
 </resources>

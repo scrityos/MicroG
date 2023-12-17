@@ -5,7 +5,7 @@
   -->
 
 <resources>
-    <string name="app_name">microG Companion</string>
-    <string name="toast_installed">microG Companion cannot be used standalone. Opened microG Services settings instead.</string>
-    <string name="toast_not_installed">microG Companion cannot be used standalone. Please install microG Services to use microG.</string>
+    <string name="app_name">MicroG Companion</string>
+    <string name="toast_installed">MicroG Companion cannot be used standalone. Opened MicroG Services settings instead</string>
+    <string name="toast_not_installed">MicroG Companion cannot be used standalone. Please install MicroG Services to use microG</string>
 </resources>
