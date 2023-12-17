@@ -23,7 +23,6 @@
         android:ellipsize="end"
         android:maxLines="1"
         android:paddingStart="56dp"
-        android:paddingLeft="56dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="?android:textColorPrimaryInverse"
         android:textSize="18sp"
