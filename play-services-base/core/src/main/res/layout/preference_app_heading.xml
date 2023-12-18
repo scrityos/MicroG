@@ -4,7 +4,6 @@
   -->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -39,5 +38,14 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
             android:textColor="?android:attr/textColorPrimary"
             tools:text="@tools:sample/lorem" />
+
+        <TextView
+            android:id="@+id/package_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dip"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            android:textColor="?android:textColorSecondary"
+            tools:text="com.example.package" />
     </LinearLayout>
 </RelativeLayout>

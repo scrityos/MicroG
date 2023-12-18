@@ -8,8 +8,11 @@ package org.microg.gms.ui
 import android.content.Context
 import android.content.pm.ApplicationInfo
 import android.util.AttributeSet
+import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.preference.Preference
+import androidx.preference.PreferenceViewHolder
+import org.microg.gms.base.core.R
 
 abstract class AppPreference : Preference {
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes)
@@ -51,4 +54,16 @@ abstract class AppPreference : Preference {
             }
             packageNameField = value
         }
+
+    override fun onBindViewHolder(holder: PreferenceViewHolder) {
+        super.onBindViewHolder(holder)
+
+        val packageNameTextView: TextView? = holder.itemView.findViewById(R.id.package_name)
+
+        if (packageNameTextView != null && packageNameField != null) {
+            packageNameTextView.text = packageNameField
+        } else {
+            packageNameTextView?.text = ""
+        }
+    }
 }
