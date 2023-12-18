@@ -5,12 +5,15 @@
 
 package org.microg.gms.ui
 
+import android.content.ComponentName
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
+import androidx.preference.SwitchPreference
 import com.google.android.gms.R
 import org.microg.gms.checkin.CheckinPreferences
 import org.microg.gms.gcm.GcmDatabase
@@ -24,6 +27,8 @@ class SettingsFragment : ResourceSettingsFragment() {
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         super.onCreatePreferences(savedInstanceState, rootKey)
+
+        val pm = requireActivity().packageManager
 
         findPreference<Preference>(PREF_ACCOUNTS)!!.onPreferenceClickListener = Preference.OnPreferenceClickListener {
             findNavController().navigate(requireContext(), R.id.accountManagerFragment)
@@ -40,6 +45,20 @@ class SettingsFragment : ResourceSettingsFragment() {
         findPreference<Preference>(PREF_ABOUT)!!.onPreferenceClickListener = Preference.OnPreferenceClickListener {
             findNavController().navigate(requireContext(), R.id.openAbout)
             true
+        }
+        findPreference<SwitchPreference>(PREF_CAST_HIDE_LAUNCHER_ICON)?.apply {
+            setOnPreferenceChangeListener { _, newValue ->
+                pm.setComponentEnabledSetting(
+                    ComponentName.createRelative(requireActivity(), "org.microg.gms.ui.SettingsActivityLauncher"),
+                    when (newValue) {
+                        true -> PackageManager.COMPONENT_ENABLED_STATE_DISABLED
+                        else -> PackageManager.COMPONENT_ENABLED_STATE_ENABLED
+                    },
+                    PackageManager.DONT_KILL_APP
+                )
+                true
+            }
+
         }
         findPreference<Preference>(PREF_ABOUT)!!.summary = getString(org.microg.tools.ui.R.string.about_version_str, AboutFragment.getSelfVersion(context))
 
@@ -114,6 +133,7 @@ class SettingsFragment : ResourceSettingsFragment() {
         const val PREF_GCM = "pref_gcm"
         const val PREF_CHECKIN = "pref_checkin"
         const val PREF_ACCOUNTS = "pref_accounts"
+        const val PREF_CAST_HIDE_LAUNCHER_ICON = "pref_hide_launcher_icon"
     }
 
     init {
