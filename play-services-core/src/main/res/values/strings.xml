@@ -255,7 +255,7 @@ This can take a couple of minutes"</string>
 
     <string name="wstxda">WSTxda</string>
     <string name="developer">Developer</string>
-    <string name="developer_link">https://linktr.ee/wstxda</string>
+    <string name="developer_link">https://github.com/WSTxda</string>
     <string name="github">GitHub</string>
     <string name="github_source">Source code repository</string>
     <string name="github_link">https://github.com/WSTxda/MicroG-RE</string>
