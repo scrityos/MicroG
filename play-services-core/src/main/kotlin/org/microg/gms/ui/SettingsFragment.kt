@@ -49,7 +49,7 @@ class SettingsFragment : ResourceSettingsFragment() {
         findPreference<SwitchPreference>(PREF_CAST_HIDE_LAUNCHER_ICON)?.apply {
             setOnPreferenceChangeListener { _, newValue ->
                 pm.setComponentEnabledSetting(
-                    ComponentName.createRelative(requireActivity(), "org.microg.gms.ui.SettingsActivityLauncher"),
+                    ComponentName.createRelative(requireActivity(), "org.microg.gms.ui.MainSettingsActivity"),
                     when (newValue) {
                         true -> PackageManager.COMPONENT_ENABLED_STATE_DISABLED
                         else -> PackageManager.COMPONENT_ENABLED_STATE_ENABLED
