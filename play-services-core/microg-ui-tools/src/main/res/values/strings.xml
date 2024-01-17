@@ -21,7 +21,7 @@
 
     <string name="about_version_str">Version %1$s</string>
     <string name="about_name_version_str">%1$s %2$s</string>
-    <string name="about_default_license">All rights reserved.</string>
+    <string name="about_default_license">All rights reserved</string>
 
     <string name="prefcat_setup">Setup</string>
 
@@ -50,5 +50,5 @@
 
     <string name="check_updates">Check updates</string>
     <string name="update_available">New version available!</string>
-    <string name="no_update_available">You are on latest version.</string>
+    <string name="no_update_available">You are on latest version</string>
 </resources>

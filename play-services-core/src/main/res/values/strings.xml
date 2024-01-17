@@ -49,7 +49,7 @@ This can take a couple of minutes"</string>
     <string name="perm_gtalk_svc_label">exchange messages and receive sync notifications from Google servers</string>
     <string name="perm_extended_access_label">Extended access to Google services</string>
 
-    <string name="service_name_checkin">Google device registration</string>
+    <string name="service_name_checkin">Device registration</string>
     <string name="service_name_mcs">Cloud Messaging</string>
 
     <string name="network_type_mobile">Mobile network</string>
@@ -63,11 +63,11 @@ This can take a couple of minutes"</string>
     <string name="self_check_cat_gms_packages">Installed packages</string>
     <string name="self_check_cat_system">System</string>
 
-    <string name="self_check_name_fake_sig_perm">System has signature spoofing support: </string>
+    <string name="self_check_name_fake_sig_perm">System has signature spoofing support</string>
     <string name="self_check_resolution_fake_sig_perm">Your ROM has no native support for signature spoofing. You can still use Xposed or other systems to spoof signature. Please check the documentation on which ROMs do support signature spoofing and how to use MicroG on ROMs that do not</string>
-    <string name="self_check_name_perm_granted">System grants signature spoofing permission: </string>
+    <string name="self_check_name_perm_granted">System grants signature spoofing permission</string>
     <string name="self_check_resolution_perm_granted">This is a strong indicator that the ROM does support signature spoofing, but requires further action to activate it. Please check the documentation on which steps might be required</string>
-    <string name="self_check_name_system_spoofs">System spoofs signature: </string>
+    <string name="self_check_name_system_spoofs">System spoofs signature</string>
     <string name="self_check_resolution_system_spoofs">Please check the documentation on which steps might be required</string>
 
     <string name="self_check_pkg_gms">Play Services</string>
