@@ -14,9 +14,9 @@
     <string name="ask_service_permission_title"><xliff:g example="F-Droid">%1$s</xliff:g> would like to use:</string>
     <string name="account_manager_title">Google Account Manager</string>
     <string name="sorry">Sorry…</string>
-    <string name="auth_before_connect">"An app on your device is trying to sign in to a Google account.
+    <string name="auth_before_connect">"Connect Google account with MicroG.
 
-If this was intentional, use the <b>Sign in</b> button to connect to Google sign-in page. Press <b>Huawei</b> to sign-in to a device from this manufacturer"</string>
+Let's connect to a Google account, use the <b>Sign in</b> button or use the <b>Huawei</b> button if you have a device with this manufacturer. By pressing on one of the buttons you will be redirected to the page to login to your account."</string>
     <string name="auth_sign_in">Sign in</string>
     <string name="auth_connecting">"Your device is establishing a connection to Google’s servers to sign you in.
 
@@ -82,7 +82,7 @@ This can take a couple of minutes"</string>
 
     <string name="self_check_pkg_revanced">ReVanced</string>
     <string name="self_check_pkg_revanced_extended">ReVanced Extended</string>
-    <string name="self_check_pkg_youtube_advanced">YouTube Advanced</string>
+    <string name="self_check_pkg_youtube_advanced">YT Advanced</string>
     <string name="self_check_pkg_vanced">Vanced</string>
     <string name="self_check_revanced_name_app_installed">Running with <xliff:g example="F-Droid">%1$s</xliff:g></string>
     <string name="self_check_revanced_resolution_app_installed"><xliff:g example="F-Droid">%1$s</xliff:g> apps not found, compile or install a modified apk</string>
@@ -115,7 +115,7 @@ This can take a couple of minutes"</string>
 
     <string name="pref_add_account_title">Accounts</string>
     <string name="pref_add_account_summary">Login in new Google account</string>
-    <string name="pref_gcm_enable_mcs_summary">Cloud Messaging is a push notification provider used by many third-party applications. To use it you must enable device registration</string>
+    <string name="pref_gcm_enable_mcs_summary">Cloud Messaging is a push notification provider used for modified apps. To use it you must enable device registration</string>
     <string name="pref_gcm_confirm_new_apps_title">Confirm new apps</string>
     <string name="pref_gcm_confirm_new_apps_summary">Ask before registering a new app to receive push notifications</string>
 

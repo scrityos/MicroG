@@ -12,11 +12,11 @@
     <string name="ask_service_permission_title"><xliff:g example="F-Droid">%1$s</xliff:g> gostaria de usar:</string>
     <string name="account_manager_title">Gerenciador de Contas do Google</string>
     <string name="sorry">Desculpe…</string>
-    <string name="auth_before_connect">"Um aplicativo em seu dispositivo está tentando fazer login em uma conta do Google.
+    <string name="auth_before_connect">"Conectar a conta Google com MicroG.
 
-Se isso foi intencional, use o botão <b>Entrar</b> ou <b>Huawei</b>, (se você possuí um dispositivo com esta marca) para se conectar à página de login do Google, se não, pressione <b>Cancelar</b> para voltar ao aplicativo que fez com que essa caixa de diálogo aparecesse."</string>
+Vamos conectar a uma conta Google, use o botão <b>Entrar</b> ou utilize o botão <b>Huawei</b> se você possuir um dispositivo com esta marca. Ao pressionar um dos botões você sera redirecionado a página para efetuar o login em sua conta."</string>
     <string name="auth_sign_in">Entrar</string>
-    <string name="auth_connecting">"Estabelecendo uma conexão com os servidores do Google para fazer login.
+    <string name="auth_connecting">"Estabelecendo conexão com os servidores do Google para fazer login.
 
 Isso pode levar alguns segundos."</string>
     <string name="no_network_error_desc">"Você não tem uma conexão de rede.
@@ -61,7 +61,7 @@ Isso pode levar alguns minutos."</string>
     <string name="self_check_cat_system">Sistema</string>
 
     <string name="self_check_name_fake_sig_perm">O sistema tem suporte a falsificação de assinatura</string>
-    <string name="self_check_resolution_fake_sig_perm">Sua ROM não tem suporte nativo para falsificação de assinatura. Você ainda pode usar o Xposed ou outros sistemas para falsificar assinatura. Verifique a documentação sobre quais ROMs suportam falsificação de assinatura e como usar o MicroG em ROMs que não suportam.</string>
+    <string name="self_check_resolution_fake_sig_perm">Sua ROM não tem suporte nativo para falsificação de assinatura. Você ainda pode usar o Xposed ou outros sistemas para falsificar assinatura. Verifique a documentação sobre quais ROMs suportam falsificação de assinatura e como usar o MicroG em ROMs que não suportam</string>
     <string name="self_check_name_perm_granted">O sistema concede a permissão para falsificar assinatura</string>
     <string name="self_check_resolution_perm_granted">Este é um forte indicador de que a ROM suporta falsificação de assinatura, mas requer ação adicional para ativá-la. Verifique a documentação sobre quais etapas podem ser necessárias</string>
     <string name="self_check_name_system_spoofs">Assinatura simulado pelo sistema</string>
@@ -88,9 +88,9 @@ Isso pode levar alguns minutos."</string>
     <string name="cond_perm_title">Permissão ausente</string>
 
     <string name="pref_auth_trust_google_title">Confiar no Google para permissões de aplicativos</string>
-    <string name="pref_auth_trust_google_summary">Quando desativado, o usuário é solicitado antes que uma solicitação de autorização de aplicativos seja enviada ao Google. Alguns aplicativos não usarão a conta do Google se isso for desativado.</string>
+    <string name="pref_auth_trust_google_summary">Quando desativado, o usuário é solicitado antes que uma solicitação de autorização de aplicativos seja enviada ao Google. Alguns aplicativos não usarão a conta do Google se isso for desativado</string>
     <string name="pref_auth_visible_title">Permitir que aplicativos encontrem contas</string>
-    <string name="pref_auth_visible_summary">Quando ativado, todos os aplicativos deste dispositivo poderão ver o endereço de e-mail de suas contas do Google sem autorização prévia.</string>
+    <string name="pref_auth_visible_summary">Quando ativado, todos os aplicativos deste dispositivo poderão ver o endereço de e-mail de suas contas do Google sem autorização prévia</string>
     <string name="pref_auth_include_android_id_title">Autenticar com o registro de dispositivos</string>
     <string name="pref_auth_include_android_id_summary">Quando desabilitadas, as solicitações de autenticação não serão vinculadas ao registro de dispositivos, o que permite que dispositivos não autorizados entrem, mas podem haver consequências imprevistas</string>
 
@@ -104,7 +104,7 @@ Isso pode levar alguns minutos."</string>
 
     <string name="pref_add_account_title">Contas</string>
     <string name="pref_add_account_summary">Fazer login em uma conta Google</string>
-    <string name="pref_gcm_enable_mcs_summary">Cloud Messaging é um provedor de notificação push usado por muitos aplicativos de terceiros. Para usá-lo, você deve ativar o registro de dispositivos.</string>
+    <string name="pref_gcm_enable_mcs_summary">Cloud Messaging é um provedor de notificação push usado por aplicativos modificados. Para utilizar você deve habilitar o registro de dispositivos</string>
     <string name="pref_gcm_confirm_new_apps_title">Confirmar novos apps</string>
     <string name="pref_gcm_confirm_new_apps_summary">Perguntar antes de registrar um novo app para receber notificações push</string>
 
@@ -125,13 +125,13 @@ Isso pode levar alguns minutos."</string>
     <string name="gcm_allow_app_popup">Permitir que <xliff:g example="F-Droid">%1$s</xliff:g> se registre para notificações push?</string>
 
     <string name="pref_push_app_allow_register_title">Permitir registro</string>
-    <string name="pref_push_app_allow_register_summary">Permita que o aplicativo se registre para notificações push.</string>
+    <string name="pref_push_app_allow_register_summary">Permita que o aplicativo se registre para notificações push</string>
     <string name="pref_push_app_wake_for_delivery_title">Inicie o aplicativo na mensagem push</string>
     <string name="pref_push_app_wake_for_delivery_summary">Inicie o aplicativo em segundo plano para receber as mensagens push</string>
     <string name="prefcat_push_apps_title">Aplicativos usando notificações push</string>
     <string name="prefcat_push_apps_registered_title">Aplicativos registrados</string>
     <string name="prefcat_push_apps_unregistered_title">Aplicativos não registrados</string>
-    <string name="prefcat_push_networks_title">Redes para usar em notificações push</string>
+    <string name="prefcat_push_networks_title">Redes para notificações push</string>
 
     <string name="profile_name_native">Nativo</string>
     <string name="profile_name_real">Real</string>
@@ -154,7 +154,7 @@ Isso pode levar alguns minutos."</string>
 
     <string name="pref_accounts_summary">Adicionar e gerenciar contas Google</string>
     <string name="prefcat_accounts_options_title">Opções</string>
-    <string name="prefcat_accounts_login_accounts_title">Conectado a</string>
+    <string name="prefcat_accounts_login_accounts_title">Conectado em</string>
     <string name="pref_accounts_add_account_title">Adicionar conta</string>
     <string name="pref_accounts_manage_accounts_title">Gerenciador de contas</string>
     <string name="pref_accounts_manage_accounts_summary">Abrir o gerenciador de contas do dispositivo</string>

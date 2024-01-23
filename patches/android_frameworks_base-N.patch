@@ -64,7 +64,7 @@ index 58135db..e65367a 100644
 +    <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
      <string name="permlab_statusBar">disable or modify status bar</string>
      <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-     <string name="permdesc_statusBar">Allows the app to disable the status bar or add and remove system icons.</string>
+     <string name="permdesc_statusBar">Allows the app to disable the status bar or add and remove system icons</string>
 diff --git a/services/core/java/com/android/server/pm/PackageManagerService.java b/services/core/java/com/android/server/pm/PackageManagerService.java
 index 0493180..35f49d7 100644
 --- a/services/core/java/com/android/server/pm/PackageManagerService.java

@@ -12,7 +12,7 @@
 
 [ReVanced Extended (RVX)](https://github.com/inotia00/revanced-patches)
 
-[YouTube Advanced (REX)](https://github.com/YT-Advanced/ReX-patches)
+[YT Advanced (REX)](https://github.com/YT-Advanced/ReX-patches)
 
 [ReVanced (Android 6-7)](https://github.com/kitadai31/revanced-patches-android6-7)
 
