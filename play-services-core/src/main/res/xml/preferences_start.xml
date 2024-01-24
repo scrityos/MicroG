@@ -50,21 +50,15 @@
         android:key="prefcat_footer"
         android:layout="@layout/preference_category_no_label">
         <Preference
+            android:key="pref_developer"
             android:icon="@drawable/ic_developer"
             android:summary="@string/developer"
-            android:title="@string/wstxda">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="@string/developer_link" />
-        </Preference>
+            android:title="@string/wstxda" />
         <Preference
+            android:key="pref_github"
             android:icon="@drawable/ic_github"
             android:summary="@string/github_source"
-            android:title="@string/github">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="@string/github_link" />
-        </Preference>
+            android:title="@string/github" />
         <Preference
             android:icon="@drawable/ic_info_outline"
             android:key="pref_about"

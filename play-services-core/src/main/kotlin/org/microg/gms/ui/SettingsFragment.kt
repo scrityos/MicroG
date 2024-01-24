@@ -5,8 +5,11 @@
 
 package org.microg.gms.ui
 
+import android.content.ActivityNotFoundException
 import android.content.ComponentName
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.lifecycleScope
@@ -32,6 +35,8 @@ class SettingsFragment : ResourceSettingsFragment() {
         const val PREF_CHECKIN = "pref_checkin"
         const val PREF_ACCOUNTS = "pref_accounts"
         const val PREF_CAST_HIDE_LAUNCHER_ICON = "pref_hide_launcher_icon"
+        const val PREF_DEVELOPER = "pref_developer"
+        const val PREF_GITHUB = "pref_github"
     }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
@@ -60,7 +65,17 @@ class SettingsFragment : ResourceSettingsFragment() {
                 true
             }
         }
-        findPreference<Preference>(PREF_ABOUT)!!.summary = getString(org.microg.tools.ui.R.string.about_version_str, AboutFragment.getSelfVersion(context))
+        findPreference<Preference>(PREF_DEVELOPER)?.onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            openLink(getString(R.string.developer_link))
+            true
+        }
+        findPreference<Preference>(PREF_GITHUB)?.onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            openLink(getString(R.string.github_link))
+            true
+        }
+
+        findPreference<Preference>(PREF_ABOUT)!!.summary =
+            getString(org.microg.tools.ui.R.string.about_version_str, AboutFragment.getSelfVersion(context))
 
         for (entry in getAllSettingsProviders(requireContext()).flatMap { it.getEntriesStatic(requireContext()) }) {
             entry.createPreference()
@@ -118,6 +133,16 @@ class SettingsFragment : ResourceSettingsFragment() {
         )
     }
 
+    private fun openLink(url: String) {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        try {
+            startActivity(intent)
+        } catch (e: ActivityNotFoundException) {
+            Log.e(TAG, "Error opening link: $url", e)
+            // Handle the case where the browser or app to handle the link is not available
+        }
+    }
+
     override fun onResume() {
         super.onResume()
         val context = requireContext()
@@ -125,12 +150,17 @@ class SettingsFragment : ResourceSettingsFragment() {
             val database = GcmDatabase(context)
             val regCount = database.registrationList.size
             database.close()
-            findPreference<Preference>(PREF_GCM)!!.summary = context.getString(org.microg.gms.base.core.R.string.service_status_enabled_short) + " - " + context.resources.getQuantityString(R.plurals.gcm_registered_apps_counter, regCount, regCount)
+            findPreference<Preference>(PREF_GCM)!!.summary =
+                context.getString(org.microg.gms.base.core.R.string.service_status_enabled_short) + " - " +
+                        context.resources.getQuantityString(R.plurals.gcm_registered_apps_counter, regCount, regCount)
         } else {
             findPreference<Preference>(PREF_GCM)!!.setSummary(org.microg.gms.base.core.R.string.service_status_disabled_short)
         }
 
-        findPreference<Preference>(PREF_CHECKIN)!!.setSummary(if (CheckinPreferences.isEnabled(requireContext())) org.microg.gms.base.core.R.string.service_status_enabled_short else org.microg.gms.base.core.R.string.service_status_disabled_short)
+        findPreference<Preference>(PREF_CHECKIN)!!.setSummary(
+            if (CheckinPreferences.isEnabled(requireContext())) org.microg.gms.base.core.R.string.service_status_enabled_short
+            else org.microg.gms.base.core.R.string.service_status_disabled_short
+        )
 
         lifecycleScope.launch {
             val entries = getAllSettingsProviders(requireContext()).flatMap { it.getEntriesDynamic(requireContext()) }
@@ -145,7 +175,7 @@ class SettingsFragment : ResourceSettingsFragment() {
         }
     }
 
-        init {
+    init {
         preferencesResource = R.xml.preferences_start
     }
 }
