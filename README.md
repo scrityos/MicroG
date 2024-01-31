@@ -10,8 +10,6 @@
 
 [ReVanced](https://github.com/ReVanced/revanced-patches)
 
-[ReVanced Extended (RVX)](https://github.com/inotia00/revanced-patches)
-
 [YT Advanced (REX)](https://github.com/YT-Advanced/ReX-patches)
 
 [ReVanced (Android 6-7)](https://github.com/kitadai31/revanced-patches-android6-7)
@@ -22,6 +20,8 @@
 ‎ 
 
 [Vanced](https://github.com/TeamVanced)
+
+[ReVanced Extended (RVX)](https://github.com/inotia00/revanced-patches)
 
 >Discontinued projects are <b>not recommended for use</b>, do <b>not report any issues</b> if you use one of these projects
 
