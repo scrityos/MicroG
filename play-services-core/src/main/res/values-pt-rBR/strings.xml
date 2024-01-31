@@ -14,7 +14,7 @@
     <string name="sorry">Desculpe…</string>
     <string name="auth_before_connect">"Conectar a conta Google com MicroG.
 
-Vamos conectar a uma conta Google, use o botão <b>Entrar</b> ou utilize o botão <b>Huawei</b> se você possuir um dispositivo com esta marca. Ao pressionar um dos botões você sera redirecionado a página para efetuar o login em sua conta."</string>
+Vamos conectar a uma conta Google, use o botão <b>Entrar</b> ou utilize o botão <b>Huawei</b> se você possuir um dispositivo com esta marca. Ao pressionar um dos botões você será redirecionado a página para efetuar o login em sua conta."</string>
     <string name="auth_sign_in">Entrar</string>
     <string name="auth_connecting">"Estabelecendo conexão com os servidores do Google para fazer login.
 
