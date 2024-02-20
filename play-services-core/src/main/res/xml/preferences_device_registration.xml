@@ -5,6 +5,7 @@
   -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <org.microg.gms.ui.SwitchBarPreference
@@ -14,40 +15,46 @@
 
     <PreferenceCategory
         android:key="prefcat_device_profile"
-        android:layout="@layout/preference_category"
         android:title="@string/pref_device_registration_device_profile_category">
+
         <ListPreference
-            android:icon="@drawable/ic_profile"
             android:key="pref_device_profile"
             android:persistent="false"
             android:title="@string/pref_device_registration_select_profile_title"
+            app:iconSpaceReserved="false"
             tools:summary="Automatic (Google Pixel 3, Android 11)" />
+
         <Preference
-            android:icon="@drawable/ic_import"
             android:key="pref_device_profile_import"
             android:summary="@string/pref_device_registration_import_custom_profile_summary"
             android:title="@string/pref_device_registration_import_custom_profile_title" />
+
         <Preference
-            android:enabled="false"
+            android:selectable="false"
             android:key="pref_device_serial"
             android:title="@string/pref_device_registration_serial_title"
             tools:summary="123456" />
+
     </PreferenceCategory>
     <PreferenceCategory
         android:key="prefcat_device_registration_status"
         android:layout="@layout/preference_category_no_label">
+
         <Preference
-            android:icon="@drawable/ic_status"
-            android:key="pref_device_registration_status"
-            android:title="@string/pref_info_status"
-            tools:summary="Last registration: 13 hours ago" />
-        <Preference
-            android:enabled="false"
+            android:selectable="false"
             android:key="pref_device_registration_android_id"
             android:title="@string/pref_device_registration_android_id"
             tools:summary="1953a59d1c1b7e4b" />
+
+        <Preference
+            android:key="pref_device_registration_status"
+            android:selectable="false"
+            android:title="@string/pref_info_status"
+            tools:summary="Last registration: 13 hours ago" />
+
+        <PreferenceCategory android:icon="@drawable/ic_info_outline" />
+
         <org.microg.gms.ui.TextPreference
-            android:icon="@drawable/ic_info_outline"
             android:selectable="false"
             android:summary="@string/pref_checkin_enable_summary" />
     </PreferenceCategory>

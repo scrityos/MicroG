@@ -70,7 +70,7 @@
                 <TextView
                     android:id="@+id/grant_permission_summary"
                     style="@style/TextAppearance.AppCompat.Small.Inverse"
-                    android:layout_width="0dip"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_marginLeft="16dp"
@@ -118,7 +118,7 @@
                 <TextView
                     android:id="@+id/grant_background_location_summary"
                     style="@style/TextAppearance.AppCompat.Small.Inverse"
-                    android:layout_width="0dip"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_marginLeft="16dp"
@@ -166,7 +166,7 @@
                 <TextView
                     android:id="@+id/enable_bluetooth_summary"
                     style="@style/TextAppearance.AppCompat.Small.Inverse"
-                    android:layout_width="0dip"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_marginLeft="16dp"
@@ -227,7 +227,7 @@
                 <TextView
                     android:id="@+id/enable_location_summary"
                     style="@style/TextAppearance.AppCompat.Small.Inverse"
-                    android:layout_width="0dip"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_marginLeft="16dp"

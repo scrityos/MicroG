@@ -2,10 +2,15 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="24dp"
     android:height="24dp"
-    android:tint="?android:textColorPrimary"
+    android:tint="?colorControlNormal"
     android:viewportWidth="24"
     android:viewportHeight="24">
-    <path
-        android:fillColor="#ff000000"
-        android:pathData="M20,12h-8v8h-1v-8H3v-1h8V3h1v8h8V12z" />
+    <group>
+        <clip-path android:pathData="M0 0H24V24H0z" />
+        <group>
+            <path
+                android:fillColor="#000000"
+                android:pathData="M11 13H5v-2h6V5h2v6h6v2h-6v6h-2v-6Z" />
+        </group>
+    </group>
 </vector>

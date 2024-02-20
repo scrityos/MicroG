@@ -14,8 +14,7 @@
      limitations under the License.
 -->
 
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -42,8 +41,7 @@
                 android:layout_height="24dp"
                 android:layout_marginBottom="18dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/ic_cloud_bell">
-            </ImageView>
+                android:src="@drawable/ic_cloud_bell" />
 
             <TextView
                 android:id="@+id/permission_message"
@@ -51,9 +49,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/gcm_allow_app_popup"
-                android:textSize="20sp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large">
-            </TextView>
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="20sp" />
 
         </LinearLayout>
 
@@ -62,35 +59,28 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
             android:layout_marginBottom="18dp"
-            android:paddingLeft="18dp"
-            android:paddingRight="18dp"
             android:divider="?attr/dividerHorizontal"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingLeft="18dp"
+            android:paddingRight="18dp">
 
             <Button
-                style="?android:attr/buttonBarButtonStyle"
                 android:id="@+id/permission_allow_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="24dip"
-                android:paddingRight="24dip"
-                android:background="@drawable/button_background_positive"
-                android:textColor="?android:textColorPrimaryInverse"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp"
                 android:text="@string/allow">
             </Button>
 
             <Button
                 android:id="@+id/permission_deny_button"
-                style="?android:attr/buttonBarButtonStyle"
+                style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="24dip"
-                android:paddingRight="24dip"
-                android:background="@drawable/button_background_neutral"
-                android:text="@string/deny"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                android:textColor="?android:textColorPrimary">
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp"
+                android:text="@string/deny">
             </Button>
 
         </LinearLayout>

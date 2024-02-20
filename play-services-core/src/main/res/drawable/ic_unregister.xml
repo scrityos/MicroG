@@ -5,7 +5,12 @@
     android:tint="?colorError"
     android:viewportWidth="24"
     android:viewportHeight="24">
-    <path
-        android:fillColor="#ff000000"
-        android:pathData="M11,17H9V8h2V17zM15,8h-2v9h2V8zM19,4v1h-1v16H6V5H5V4h4V3h6v1H19zM17,5H7v15h10V5z" />
+    <group>
+        <clip-path android:pathData="M0 0H24V24H0z" />
+        <group>
+            <path
+                android:fillColor="#000000"
+                android:pathData="M7 21c-0.55 0-1.02-0.2-1.41-0.59C5.19 20.02 5 19.55 5 19V6H4V4h5V3h6v1h5v2h-1v13c0 0.55-0.2 1.02-0.59 1.41C18.02 20.81 17.55 21 17 21H7ZM17 6H7v13h10V6ZM9 17h2V8H9v9Zm4 0h2V8h-2v9Z" />
+        </group>
+    </group>
 </vector>
