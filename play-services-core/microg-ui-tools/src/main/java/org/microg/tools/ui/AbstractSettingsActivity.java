@@ -19,14 +19,16 @@ public abstract class AbstractSettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity);
-        if (showHomeAsUp) {
+
+        // Temporary toolbar fix
+        if (showHomeAsUp && getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        switchBar = (SwitchBar) findViewById(R.id.switch_bar);
+        switchBar = findViewById(R.id.switch_bar);
 
-        customBarContainer = (ViewGroup) findViewById(R.id.custom_bar);
-        if (customBarLayout != 0) {
+        customBarContainer = findViewById(R.id.custom_bar);
+        if (customBarLayout != 0 && customBarContainer != null) {
             customBarContainer.addView(getLayoutInflater().inflate(customBarLayout, customBarContainer, false));
         }
 

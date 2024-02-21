@@ -105,13 +105,14 @@ public class SelfCheckFragment extends AbstractSelfCheckFragment {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         reset(LayoutInflater.from(getContext()));
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        reset(LayoutInflater.from(getContext()));
         super.onActivityResult(requestCode, resultCode, data);
+        reset(LayoutInflater.from(getContext()));
     }
 
     public static class AsActivity extends AbstractSettingsActivity {
