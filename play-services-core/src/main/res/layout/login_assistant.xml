@@ -79,23 +79,21 @@
             <Button
                 android:id="@+id/next_button"
                 android:layout_width="fill_parent"
-                android:layout_height="68dp"
+                android:layout_height="64dp"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="12dp"
-                android:layout_marginEnd="12dp"
-                android:textSize="16sp" />
+                android:layout_marginEnd="12dp" />
 
             <Button
                 android:id="@+id/spoof_button"
                 style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="fill_parent"
-                android:layout_height="68dp"
+                android:layout_height="64dp"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="12dp"
                 android:layout_marginEnd="12dp"
-                android:layout_marginBottom="18dp"
-                android:textSize="16sp" />
+                android:layout_marginBottom="18dp" />
         </LinearLayout>
-    </LinearLayout>
 
+    </LinearLayout>
 </RelativeLayout>
