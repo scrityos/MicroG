@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><!--
+<?xml version="1.0" encoding="utf-8"?>
+<!--
   ~ SPDX-FileCopyrightText: 2023 microG Project Team
   ~ SPDX-License-Identifier: Apache-2.0
   -->
@@ -60,9 +61,8 @@
             android:id="@+id/patcher_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textColor="?android:colorAccent"
-            android:visibility="gone"
             tools:text="ReVanced" />
     </LinearLayout>
 </RelativeLayout>

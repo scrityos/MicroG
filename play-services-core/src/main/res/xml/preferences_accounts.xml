@@ -3,13 +3,11 @@
 
     <PreferenceCategory
         android:key="prefcat_current_accounts"
-        android:layout="@layout/preference_category"
         android:title="@string/prefcat_accounts_login_accounts_title"
         android:visibility="gone" />
 
     <PreferenceCategory
         android:key="prefcat_account_settings"
-        android:layout="@layout/preference_category"
         android:title="@string/prefcat_accounts_options_title">
 
         <Preference

@@ -26,10 +26,12 @@
     android:paddingRight="?attr/listPreferredItemPaddingRight">
 
     <LinearLayout
-        android:layout_width="0dip"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:gravity="center_vertical"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:orientation="vertical"
         android:baselineAligned="false"
         android:layout_marginRight="8dp"
@@ -40,8 +42,8 @@
             android:id="@+id/self_check_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?attr/textAppearanceListItem"
             android:textColor="?android:textColorPrimary"
+            android:textAppearance="?android:attr/textAppearanceListItem"
             android:layout_gravity="center_vertical"/>
 
         <TextView

@@ -16,13 +16,15 @@
   -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <SwitchPreference
+
+    <SwitchPreferenceCompat
         android:defaultValue="true"
         android:enabled="false"
         android:key="network_google_enabled"
         android:summary="@string/pref_network_google_enabled_summary"
         android:title="@string/pref_network_google_enabled" />
-    <SwitchPreference
+
+    <SwitchPreferenceCompat
         android:defaultValue="false"
         android:dependency="network_google_enabled"
         android:enabled="false"

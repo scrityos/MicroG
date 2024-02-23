@@ -16,7 +16,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
-import androidx.preference.SwitchPreference
+import androidx.preference.SwitchPreferenceCompat
 import com.google.android.gms.R
 import kotlinx.coroutines.launch
 import org.microg.gms.checkin.CheckinPreferences
@@ -58,7 +58,7 @@ class SettingsFragment : ResourceSettingsFragment() {
             findNavController().navigate(requireContext(), R.id.openAbout)
             true
         }
-        findPreference<SwitchPreference>(PREF_CAST_HIDE_LAUNCHER_ICON)?.apply {
+        findPreference<SwitchPreferenceCompat>(PREF_CAST_HIDE_LAUNCHER_ICON)?.apply {
             setOnPreferenceChangeListener { _, newValue ->
                 val isEnabled = newValue as Boolean
                 updateLauncherIconVisibility(isEnabled)

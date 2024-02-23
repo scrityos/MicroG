@@ -16,5 +16,8 @@
   -->
 
 <resources>
+    <bool name="settings_config_icon_space_reserved">false</bool>
+    <bool name="settings_config_allow_divider">false</bool>
+
     <bool name="is_gmscore">true</bool>
 </resources>

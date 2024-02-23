@@ -60,7 +60,7 @@ public class SelfCheckFragment extends AbstractSelfCheckFragment {
     @Override
     protected void prepareSelfCheckList(List<SelfCheckGroup> checks) {
 //        checks.add(new RomSpoofSignatureChecks());
-        checks.add(new InstalledPackagesChecks());
+        checks.add(new SystemChecks());
 //        if (SDK_INT >= 23) {
 //            List<String> permissions = new ArrayList<>();
 ////            permissions.add(ACCESS_COARSE_LOCATION);
@@ -96,22 +96,21 @@ public class SelfCheckFragment extends AbstractSelfCheckFragment {
 //                }
 //            });
 //        }
-        if (SDK_INT >= Build.VERSION_CODES.M) {
-            checks.add(new SystemChecks());
-        }
-//        checks.add(new NlpOsCompatChecks());
+        checks.add(new InstalledPackagesChecks());
+        //        checks.add(new NlpOsCompatChecks());
 //        checks.add(new NlpStatusChecks());
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         reset(LayoutInflater.from(getContext()));
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        reset(LayoutInflater.from(getContext()));
         super.onActivityResult(requestCode, resultCode, data);
+        reset(LayoutInflater.from(getContext()));
     }
 
     public static class AsActivity extends AbstractSettingsActivity {
