@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -112,6 +113,12 @@ public abstract class AbstractAboutFragment extends Fragment {
 
         Button btnCheckUpdates = aboutRoot.findViewById(R.id.btnCheckUpdates);
         btnCheckUpdates.setOnClickListener(v -> {
+            btnCheckUpdates.setEnabled(false);
+
+            new Handler().postDelayed(() -> {
+                btnCheckUpdates.setEnabled(true);
+            }, 3000); // Button disabled timeout, do not increase the value much, leave it between 2~10 milliseconds
+
             UpdateChecker updateChecker = new UpdateChecker(getContext());
             updateChecker.checkForUpdates();
         });
