@@ -79,6 +79,15 @@
         <item name="colorBackgroundFloating">?colorSurface</item>
     </style>
 
+    <style name="AppTheme.Dialog.Account" parent="@style/ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="android:colorBackground">?colorSurfaceContainer</item>
+        <item name="android:listPreferredItemHeightSmall">48dp</item>
+        <item name="android:windowAnimationStyle">@style/MaterialAlertDialog.Material3.Animation</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+        <item name="dialogCornerRadius">@dimen/settings_dialog_corner_radius</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Theme.PositiveButton.Warning</item>
+    </style>
+
     <style name="Settings.CategoryPreference" parent="@style/Preference.Category.Material">
         <item name="allowDividerAbove">@bool/settings_config_allow_divider</item>
         <item name="allowDividerBelow">@bool/settings_config_allow_divider</item>
@@ -93,6 +102,11 @@
 
     <style name="Theme.TextAppearance.CategoryTitle" parent="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">14.0sp</item>
+    </style>
+
+    <style name="Theme.PositiveButton.Warning" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:textColor">?colorError</item>
+        <item name="rippleColor">?colorErrorContainer</item>
     </style>
 
     <!-- Application theme -->
