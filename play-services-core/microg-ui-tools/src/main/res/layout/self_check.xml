@@ -30,10 +30,10 @@
             style="?attr/collapsingToolbarLayoutLargeStyle"
             android:layout_width="match_parent"
             android:layout_height="?attr/collapsingToolbarLayoutLargeSize"
-            app:expandedTitleMarginEnd="@dimen/settings_expanded_title_margin_end"
-            app:expandedTitleMarginStart="@dimen/settings_expanded_title_margin_start"
+            app:expandedTitleMarginEnd="@dimen/expanded_title_margin_end"
+            app:expandedTitleMarginStart="@dimen/expanded_title_margin_start"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
-            app:scrimVisibleHeightTrigger="@dimen/settings_scrim_visible_height_trigger">
+            app:scrimVisibleHeightTrigger="@dimen/scrim_visible_height_trigger">
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/toolbar"
