@@ -33,9 +33,6 @@ dependencies {
 
     implementation "androidx.lifecycle:lifecycle-service:$lifecycleVersion"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
-
-    // Material Components
-    implementation "com.google.android.material:material:$materialVersion"
 }
 
 android {
