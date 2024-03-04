@@ -6,10 +6,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceFragmentCompat
@@ -133,6 +137,26 @@ class AccountsFragment : PreferenceFragmentCompat() {
                 Log.e(TAG, "Failed to launch login activity", activityNotFoundException)
             }
             true
+        }
+    }
+
+    init {
+        setHasOptionsMenu(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.accounts_menu_item, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.account_legacy_settings -> {
+                findNavController().navigate(R.id.accountLegacyFragment)
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
         }
     }
 }
