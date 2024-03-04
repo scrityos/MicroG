@@ -12,7 +12,11 @@
     <string name="ask_permission_tos">By continuing, you allow this app and Google to use your information in accordance with their respective terms of service and privacy policies</string>
     <string name="ask_scope_permission_title"><xliff:g example="F-Droid">%1$s</xliff:g> would like to:</string>
     <string name="ask_service_permission_title"><xliff:g example="F-Droid">%1$s</xliff:g> would like to use:</string>
-    <string name="account_manager_title">Google Account Manager</string>
+
+    <string name="account_manager_title">Accounts manager</string>
+    <string name="prefcat_applications">Applications</string>
+    <string name="prefcat_authentication">Authentication</string>
+
     <string name="sorry">Sorry…</string>
     <string name="auth_before_connect">"Connect Google account with MicroG.
 
@@ -104,7 +108,7 @@ This can take a couple of minutes"</string>
     <string name="pref_auth_include_android_id_title">Authenticate with device registration</string>
     <string name="pref_auth_include_android_id_summary">When disabled, authentication requests won\'t be linked to the device registration, which allows unauthorized devices to sign in, but may have unforeseen consequences</string>
     <string name="pref_auth_strip_device_name_title">Strip device name for authentication</string>
-    <string name="pref_auth_strip_device_name_summary">When enabled, authentication requests won\'t include the device\'s name, which may allow unauthorized devices to sign in, but may have unforeseen consequences.</string>
+    <string name="pref_auth_strip_device_name_summary">When enabled, authentication requests won\'t include the device\'s name, which may allow unauthorized devices to sign in, but may have unforeseen consequences</string>
 
     <string name="pref_checkin_enable_summary">Registers your device to Google services and creates a unique device identifier. MicroG strips identifying bits other than your Google account name from registration data</string>
     <string name="pref_device_registration_android_id">Android ID</string>
