@@ -154,14 +154,14 @@ class AccountsFragment : PreferenceFragmentCompat() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.accounts_menu_item, menu)
+        inflater.inflate(R.menu.privacy_menu_item, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.account_legacy_settings -> {
-                findNavController().navigate(R.id.accountLegacyFragment)
+            R.id.privacy_settings -> {
+                findNavController().navigate(R.id.privacyFragment)
                 true
             }
 

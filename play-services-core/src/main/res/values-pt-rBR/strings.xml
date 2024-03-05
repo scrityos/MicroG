@@ -11,7 +11,7 @@
     <string name="ask_scope_permission_title"><xliff:g example="F-Droid">%1$s</xliff:g> gostaria de:</string>
     <string name="ask_service_permission_title"><xliff:g example="F-Droid">%1$s</xliff:g> gostaria de usar:</string>
 
-    <string name="account_manager_title">Gerenciador de contas</string>
+    <string name="privacy_title">Privacidade</string>
     <string name="prefcat_applications">Aplicativos</string>
     <string name="prefcat_authentication">Autenticação</string>
 
