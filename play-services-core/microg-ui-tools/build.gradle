@@ -39,6 +39,9 @@ android {
         // TODO: Remove MissingTranslation once we have stable strings and proper translations.
         disable 'MissingTranslation'
     }
+    buildFeatures {
+        buildConfig true
+    }
 }
 
 dependencies {
