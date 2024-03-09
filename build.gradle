@@ -7,12 +7,6 @@ buildscript {
     ext.applicationNamespace = "com.google.android.gms"
     ext.basePackageName = "com.mgoogle"
 
-    ext.cronetVersion = '102.5005.125'
-    ext.wearableVersion = '0.1.1'
-
-    ext.kotlinVersion = '1.9.22'
-    ext.coroutineVersion = '1.7.3'
-
     ext.annotationVersion = '1.7.1'
     ext.appcompatVersion = '1.6.1'
     ext.biometricVersion = '1.1.0'
@@ -28,9 +22,15 @@ buildscript {
     ext.recyclerviewVersion = '1.3.2'
     ext.webkitVersion = '1.10.0'
 
+    ext.coroutineVersion = '1.7.3'
+    ext.kotlinVersion = '1.9.22'
+
+    ext.cronetVersion = '102.5005.125'
+    ext.okhttpVersion = '4.12.0'
     ext.slf4jVersion = '1.7.36'
     ext.volleyVersion = '1.2.1'
-    ext.wireVersion = '4.8.0'
+    ext.wearableVersion = '0.1.1'
+    ext.wireVersion = '4.9.7'
 
     ext.androidBuildGradleVersion = '8.3.0'
 
