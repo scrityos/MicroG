@@ -5,6 +5,7 @@ import android.view.MenuItem;
 import android.view.ViewGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -19,16 +20,16 @@ public abstract class AbstractSettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity);
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
 
-        // Temporary toolbar fix
-        if (showHomeAsUp && getSupportActionBar() != null) {
+        if (showHomeAsUp) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        switchBar = findViewById(R.id.switch_bar);
+        switchBar = (SwitchBar) findViewById(R.id.switch_bar);
 
-        customBarContainer = findViewById(R.id.custom_bar);
-        if (customBarLayout != 0 && customBarContainer != null) {
+        customBarContainer = (ViewGroup) findViewById(R.id.custom_bar);
+        if (customBarLayout != 0) {
             customBarContainer.addView(getLayoutInflater().inflate(customBarLayout, customBarContainer, false));
         }
 

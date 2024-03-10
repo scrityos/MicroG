@@ -7,41 +7,41 @@ buildscript {
     ext.applicationNamespace = "com.google.android.gms"
     ext.basePackageName = "com.mgoogle"
 
-    ext.cronetVersion = '102.5005.125'
-    ext.wearableVersion = '0.1.1'
-
-    ext.kotlinVersion = '1.7.22'
-    ext.coroutineVersion = '1.6.4'
-
-    ext.annotationVersion = '1.6.0'
+    ext.annotationVersion = '1.7.1'
     ext.appcompatVersion = '1.6.1'
     ext.biometricVersion = '1.1.0'
-    ext.coreVersion = '1.9.0'
-    ext.fragmentVersion = '1.5.5'
-    ext.lifecycleVersion = '2.6.1'
-    ext.materialVersion = '1.9.0'
+    ext.coreVersion = '1.12.0'
+    ext.fragmentVersion = '1.6.2'
+    ext.lifecycleVersion = '2.7.0'
     ext.loaderVersion = '1.1.0'
-    ext.mediarouterVersion = '1.4.0'
+    ext.materialVersion = '1.11.0'
+    ext.mediarouterVersion = '1.6.0'
     ext.multidexVersion = '2.0.1'
-    ext.navigationVersion = '2.6.0'
+    ext.navigationVersion = '2.7.7'
     ext.preferenceVersion = '1.2.0'
-    ext.recyclerviewVersion = '1.2.0'
-    ext.webkitVersion = '1.7.0'
+    ext.recyclerviewVersion = '1.3.2'
+    ext.webkitVersion = '1.10.0'
 
+    ext.coroutineVersion = '1.7.3'
+    ext.kotlinVersion = '1.9.22'
+
+    ext.cronetVersion = '102.5005.125'
+    ext.okhttpVersion = '4.12.0'
     ext.slf4jVersion = '1.7.36'
     ext.volleyVersion = '1.2.1'
-    ext.wireVersion = '4.8.0'
+    ext.wearableVersion = '0.1.1'
+    ext.wireVersion = '4.9.7'
 
-    ext.androidBuildGradleVersion = '8.0.2'
+    ext.androidBuildGradleVersion = '8.3.0'
 
-    ext.androidBuildVersionTools = '33.0.2'
+    ext.androidBuildVersionTools = '34.0.0'
 
     ext.androidMinSdk = 23
     ext.androidTargetSdk = 29
-    ext.androidCompileSdk = 33
+    ext.androidCompileSdk = 34
 
     ext.localProperties = new Properties()
-    
+
     ext.includeProjects = [
             ':play-services-base-core',
             ':play-services-cast-core',
@@ -82,8 +82,8 @@ allprojects {
     apply plugin: 'idea'
 
     group = 'org.microg.gms'
-    ext.appVersionName = 5.0
-    ext.appVersionCode = 240515000
+    ext.appVersionName = 5.1
+    ext.appVersionCode = 240812000
     ext.baseVersion = ext.appVersionCode.toString()[0..1] + '.' + ext.appVersionCode.toString()[2..3] + '.' + ext.appVersionCode.toString()[4..5]
     version = ext.appVersionName+" GMS-"+ext.baseVersion.replaceAll("\\.", "")
     ext.isReleaseVersion = false

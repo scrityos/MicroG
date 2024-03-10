@@ -12,7 +12,11 @@
     <string name="ask_permission_tos">By continuing, you allow this app and Google to use your information in accordance with their respective terms of service and privacy policies</string>
     <string name="ask_scope_permission_title"><xliff:g example="F-Droid">%1$s</xliff:g> would like to:</string>
     <string name="ask_service_permission_title"><xliff:g example="F-Droid">%1$s</xliff:g> would like to use:</string>
-    <string name="account_manager_title">Google Account Manager</string>
+
+    <string name="privacy_title">Privacy</string>
+    <string name="prefcat_applications">Applications</string>
+    <string name="prefcat_authentication">Authentication</string>
+
     <string name="sorry">Sorry…</string>
     <string name="auth_before_connect">"Connect Google account with MicroG.
 
@@ -78,11 +82,11 @@ This can take a couple of minutes"</string>
     <string name="self_check_resolution_correct_sig">Either the installed <xliff:g example="F-Droid">%1$s</xliff:g> is not compatible or signature spoofing is not active for it. Please check the documentation on which applications and ROMs are compatible</string>
 
     <string name="self_check_name_battery_optimizations">Battery optimizations ignored</string>
-    <string name="self_check_resolution_battery_optimizations">Touch here to disable battery optimizations. Not doing this may result in misbehaving applications</string>
+    <string name="self_check_resolution_battery_optimizations">Touch here to disable battery optimizations. Not doing so may result in issues receiving notifications from YouTube and other registered apps</string>
 
     <string name="self_check_pkg_revanced">ReVanced</string>
     <string name="self_check_pkg_revanced_extended">ReVanced Extended</string>
-<!--    <string name="self_check_pkg_youtube_advanced">YT Advanced</string>-->
+    <string name="self_check_pkg_youtube_advanced">YT Advanced</string>
     <string name="self_check_pkg_vanced">Vanced</string>
     <string name="self_check_revanced_name_app_installed">Running with <xliff:g example="F-Droid">%1$s</xliff:g></string>
     <string name="self_check_revanced_resolution_app_installed"><xliff:g example="F-Droid">%1$s</xliff:g> apps not found, compile or install a modified apk</string>
@@ -103,6 +107,8 @@ This can take a couple of minutes"</string>
     <string name="brand_spoof_button">Huawei</string>
     <string name="pref_auth_include_android_id_title">Authenticate with device registration</string>
     <string name="pref_auth_include_android_id_summary">When disabled, authentication requests won\'t be linked to the device registration, which allows unauthorized devices to sign in, but may have unforeseen consequences</string>
+    <string name="pref_auth_strip_device_name_title">Strip device name for authentication</string>
+    <string name="pref_auth_strip_device_name_summary">When enabled, authentication requests won\'t include the device\'s name, which may allow unauthorized devices to sign in, but may have unforeseen consequences</string>
 
     <string name="pref_checkin_enable_summary">Registers your device to Google services and creates a unique device identifier. MicroG strips identifying bits other than your Google account name from registration data</string>
     <string name="pref_device_registration_android_id">Android ID</string>

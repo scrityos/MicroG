@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,6 +33,9 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.google.android.material.color.MaterialColors;
+import com.google.android.material.transition.platform.MaterialSharedAxis;
 
 import org.microg.tools.updater.UpdateChecker;
 
@@ -80,6 +84,21 @@ public abstract class AbstractAboutFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setEnterTransition(new MaterialSharedAxis(MaterialSharedAxis.X, true));
+        setExitTransition(new MaterialSharedAxis(MaterialSharedAxis.X, true));
+        setReenterTransition(new MaterialSharedAxis(MaterialSharedAxis.X, false));
+        setReturnTransition(new MaterialSharedAxis(MaterialSharedAxis.X, false));
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        view.setBackgroundColor(MaterialColors.getColor(view, android.R.attr.colorBackground));
+    }
+
     public static String getSelfVersion(Context context) {
         return getLibVersion(BuildConfig.GMS_APPLICATION_NAMESPACE);
     }
@@ -112,6 +131,12 @@ public abstract class AbstractAboutFragment extends Fragment {
 
         Button btnCheckUpdates = aboutRoot.findViewById(R.id.btnCheckUpdates);
         btnCheckUpdates.setOnClickListener(v -> {
+            btnCheckUpdates.setEnabled(false);
+
+            new Handler().postDelayed(() -> {
+                btnCheckUpdates.setEnabled(true);
+            }, 3000); // Button disabled timeout, do not increase the value much, leave it between 2~10 milliseconds
+
             UpdateChecker updateChecker = new UpdateChecker(getContext());
             updateChecker.checkForUpdates();
         });

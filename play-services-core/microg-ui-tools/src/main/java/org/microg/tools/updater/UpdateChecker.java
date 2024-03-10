@@ -26,6 +26,7 @@ public class UpdateChecker {
 
     private static final String GITHUB_API_URL = "https://api.github.com/repos/WSTxda/MicroG-RE/releases/latest";
     private static final String GITHUB_RELEASE_LINK = "https://github.com/WSTxda/MicroG-RE/releases/latest";
+    private static final String ERROR_NO_RESPONSE = "ERROR_NO_RESPONSE";
 
     private final WeakReference<Context> contextRef;
 
@@ -43,7 +44,7 @@ public class UpdateChecker {
             String latestVersion = futureTask.get();
             onPostExecute(latestVersion);
         } catch (Exception e) {
-            e.printStackTrace();
+            handleUpdateError(e);
         }
     }
 
@@ -51,20 +52,22 @@ public class UpdateChecker {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder().url(GITHUB_API_URL).build();
 
-        try (Response response = client.newCall(request).execute()) {
+        try {
+            Response response = client.newCall(request).execute();
             if (response.isSuccessful()) {
-                try (ResponseBody responseBody = response.body()) {
-                    if (responseBody != null) {
-                        String jsonData = responseBody.string();
-                        return parseLatestVersion(jsonData);
-                    }
+                ResponseBody responseBody = response.body();
+                if (responseBody != null) {
+                    String jsonData = responseBody.string();
+                    return parseLatestVersion(jsonData);
+                } else {
+                    throw new IOException("Response body is null");
                 }
+            } else {
+                throw new IOException("Unsuccessful response: " + response.code());
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            return handleRequestError(e);
         }
-
-        return "";
     }
 
     private String parseLatestVersion(String jsonData) {
@@ -72,13 +75,18 @@ public class UpdateChecker {
             return new JSONObject(jsonData).optString("tag_name", "");
         } catch (JSONException e) {
             e.printStackTrace();
+            return "";
         }
-        return "";
     }
 
     private void onPostExecute(String latestVersion) {
         Context context = contextRef.get();
         if (context == null) {
+            return;
+        }
+
+        if (latestVersion.equals(ERROR_NO_RESPONSE)) {
+            showApiErrorResponseToast(context);
             return;
         }
 
@@ -92,6 +100,23 @@ public class UpdateChecker {
         }
     }
 
+    private void handleUpdateError(Exception e) {
+        Context context = contextRef.get();
+        if (context != null) {
+            if (e instanceof IOException) {
+                showToast(context, context.getString(R.string.error_connection) + e.getMessage());
+            } else {
+                showToast(context, context.getString(R.string.error_others) + e.getMessage());
+            }
+        }
+    }
+
+    private String handleRequestError(IOException e) {
+        e.printStackTrace();
+        return ERROR_NO_RESPONSE;
+    }
+
+
     private void showUpdateToast(Context context) {
         String message = context.getString(R.string.update_available);
         showToast(context, message);
@@ -99,6 +124,11 @@ public class UpdateChecker {
 
     private void showUpToDateToast(Context context) {
         String message = context.getString(R.string.no_update_available);
+        showToast(context, message);
+    }
+
+    private void showApiErrorResponseToast(Context context) {
+        String message = context.getString(R.string.check_updates_error);
         showToast(context, message);
     }
 

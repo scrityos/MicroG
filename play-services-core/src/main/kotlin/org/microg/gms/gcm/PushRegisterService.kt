@@ -351,7 +351,7 @@ internal class PushRegisterHandler(private val context: Context, private val dat
 class PushRegisterReceiver : WakefulBroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         val intent2 = Intent(context, PushRegisterService::class.java)
-        if (intent.extras!!["delete"] != null) {
+        if (intent.extras!!.get("delete") != null) {
             intent2.action = ACTION_C2DM_UNREGISTER
         } else {
             intent2.action = ACTION_C2DM_REGISTER

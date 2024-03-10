@@ -10,7 +10,11 @@
     <string name="ask_permission_tos">Ao continuar, você permite que este aplicativo e o Google usem suas informações de acordo com seus respectivos termos de serviço e políticas de privacidade</string>
     <string name="ask_scope_permission_title"><xliff:g example="F-Droid">%1$s</xliff:g> gostaria de:</string>
     <string name="ask_service_permission_title"><xliff:g example="F-Droid">%1$s</xliff:g> gostaria de usar:</string>
-    <string name="account_manager_title">Gerenciador de Contas do Google</string>
+
+    <string name="privacy_title">Privacidade</string>
+    <string name="prefcat_applications">Aplicativos</string>
+    <string name="prefcat_authentication">Autenticação</string>
+
     <string name="sorry">Desculpe…</string>
     <string name="auth_before_connect">"Conectar a conta Google com MicroG.
 
@@ -73,7 +77,7 @@ Isso pode levar alguns minutos."</string>
     <string name="self_check_resolution_correct_sig">Ou o <xliff:g example="F-Droid">%1$s</xliff:g> instalado não é compatível ou a falsificação de assinatura não está ativa para ele. Verifique a documentação sobre quais aplicativos e ROMs são compatíveis</string>
 
     <string name="self_check_name_battery_optimizations">Otimização de bateria ignorada</string>
-    <string name="self_check_resolution_battery_optimizations">Toque aqui para desativar as otimizações de bateria. Não fazer isso pode resultar em um funcionamento inadequado</string>
+    <string name="self_check_resolution_battery_optimizations">Toque aqui para desativar as otimizações de bateria. Não fazer isso pode resultar em problemas no recebimento de notificações do YouTube e outros aplicativos registrados</string>
 
     <string name="self_check_revanced_name_app_installed">Executando com <xliff:g example="F-Droid">%1$s</xliff:g></string>
     <string name="self_check_revanced_resolution_app_installed">Aplicativos <xliff:g example="F-Droid">%1$s</xliff:g> não encontrados, compile ou instale um apk modificado</string>
@@ -88,11 +92,13 @@ Isso pode levar alguns minutos."</string>
     <string name="cond_perm_title">Permissão ausente</string>
 
     <string name="pref_auth_trust_google_title">Confiar no Google para permissões de aplicativos</string>
-    <string name="pref_auth_trust_google_summary">Quando desativado, o usuário é solicitado antes que uma solicitação de autorização de aplicativos seja enviada ao Google. Alguns aplicativos não usarão a conta do Google se isso for desativado</string>
+    <string name="pref_auth_trust_google_summary">Quando desativado, o usuário é notificado antes que uma solicitação de autorização de aplicativos seja enviada ao Google. Alguns aplicativos não usarão a conta do Google se isso for desativado</string>
     <string name="pref_auth_visible_title">Permitir que aplicativos encontrem contas</string>
     <string name="pref_auth_visible_summary">Quando ativado, todos os aplicativos deste dispositivo poderão ver o endereço de e-mail de suas contas do Google sem autorização prévia</string>
     <string name="pref_auth_include_android_id_title">Autenticar com o registro de dispositivos</string>
-    <string name="pref_auth_include_android_id_summary">Quando desabilitadas, as solicitações de autenticação não serão vinculadas ao registro de dispositivos, o que permite que dispositivos não autorizados entrem, mas podem haver consequências imprevistas</string>
+    <string name="pref_auth_include_android_id_summary">Quando desabilitado, as solicitações de autenticação não serão vinculadas ao registro de dispositivos, o que permite que dispositivos não autorizados entrem, mas podem haver consequências imprevistas</string>
+    <string name="pref_auth_strip_device_name_title">Remover nome do dispositivo para autenticação</string>
+    <string name="pref_auth_strip_device_name_summary">Quando ativado, solicitações de autenticação não incluirão o nome do dispositivo, o que pode permitir que dispositivos não autorizados façam login, mas pode ter consequências imprevistas</string>
 
     <string name="pref_checkin_enable_summary">Registre seu dispositivo nos serviços do Google e crie um identificador de dispositivo exclusivo. MicroG remove bits de identificação que não sejam o nome da sua conta do Google dos dados de registro</string>
 

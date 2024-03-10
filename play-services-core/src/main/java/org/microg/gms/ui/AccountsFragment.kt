@@ -6,14 +6,20 @@ import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceFragmentCompat
 import com.google.android.gms.R
+import com.google.android.material.color.MaterialColors
+import com.google.android.material.transition.platform.MaterialSharedAxis
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -29,6 +35,12 @@ class AccountsFragment : PreferenceFragmentCompat() {
         addPreferencesFromResource(R.xml.preferences_accounts)
         updateAccountList()
     }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enterTransition = MaterialSharedAxis(MaterialSharedAxis.X, true)
+        reenterTransition = MaterialSharedAxis(MaterialSharedAxis.X, false)
+}
 
     override fun onResume() {
         super.onResume()
@@ -72,7 +84,7 @@ class AccountsFragment : PreferenceFragmentCompat() {
     }
 
     private fun showConfirmationDialog(accountName: String) {
-        val alertDialogBuilder = AlertDialog.Builder(requireContext())
+        val alertDialogBuilder = AlertDialog.Builder(requireContext(), R.style.AppTheme_Dialog_Account)
         alertDialogBuilder.apply {
             setTitle(getString(R.string.dialog_title_remove_account))
             setMessage(getString(R.string.dialog_message_remove_account))
@@ -116,6 +128,7 @@ class AccountsFragment : PreferenceFragmentCompat() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        view.setBackgroundColor(MaterialColors.getColor(view, android.R.attr.colorBackground))
 
         findPreference<Preference>("pref_manage_accounts")?.setOnPreferenceClickListener {
             try {
@@ -133,6 +146,26 @@ class AccountsFragment : PreferenceFragmentCompat() {
                 Log.e(TAG, "Failed to launch login activity", activityNotFoundException)
             }
             true
+        }
+    }
+
+    init {
+        setHasOptionsMenu(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.privacy_menu_item, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.privacy_settings -> {
+                findNavController().navigate(R.id.privacyFragment)
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
         }
     }
 }

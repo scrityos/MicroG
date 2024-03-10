@@ -39,12 +39,15 @@ android {
         // TODO: Remove MissingTranslation once we have stable strings and proper translations.
         disable 'MissingTranslation'
     }
+    buildFeatures {
+        buildConfig true
+    }
 }
 
 dependencies {
     implementation "androidx.appcompat:appcompat:$appcompatVersion"
     implementation "androidx.preference:preference:$preferenceVersion"
     implementation "com.google.android.material:material:$materialVersion"
-    implementation 'com.squareup.okhttp3:okhttp:4.10.0'
+    implementation "com.squareup.okhttp3:okhttp:$okhttpVersion"
 }
 

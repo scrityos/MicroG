@@ -8,10 +8,12 @@ package org.microg.gms.ui
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.text.format.DateUtils
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.view.View
 import androidx.core.os.bundleOf
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -19,6 +21,8 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceFragmentCompat
 import com.google.android.gms.R
+import com.google.android.material.color.MaterialColors
+import com.google.android.material.transition.platform.MaterialSharedAxis
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.microg.gms.checkin.CheckinPreferences
@@ -39,7 +43,14 @@ class PushNotificationFragment : PreferenceFragmentCompat() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enterTransition = MaterialSharedAxis(MaterialSharedAxis.X, true)
+        reenterTransition = MaterialSharedAxis(MaterialSharedAxis.X, false)
         database = GcmDatabase(context)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        view.setBackgroundColor(MaterialColors.getColor(view, android.R.attr.colorBackground))
     }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
@@ -67,7 +78,6 @@ class PushNotificationFragment : PreferenceFragmentCompat() {
 
     override fun onResume() {
         super.onResume()
-
         switchBarPreference.isEnabled = CheckinPreferences.isEnabled(requireContext())
         switchBarPreference.isChecked = GcmPrefs.get(requireContext()).isEnabled
 
@@ -139,14 +149,14 @@ class PushNotificationFragment : PreferenceFragmentCompat() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        menu.add(0, MENU_ADVANCED, 0, org.microg.gms.base.core.R.string.menu_advanced)
+        inflater.inflate(R.menu.gcm_menu_item, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            MENU_ADVANCED -> {
-                findNavController().navigate(requireContext(), R.id.openGcmAdvancedSettings)
+            R.id.menu_advanced -> {
+                findNavController().navigate(R.id.openGcmAdvancedSettings)
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -155,6 +165,5 @@ class PushNotificationFragment : PreferenceFragmentCompat() {
 
     companion object {
         private const val UPDATE_INTERVAL = 1000L
-        private const val MENU_ADVANCED = Menu.FIRST
     }
 }

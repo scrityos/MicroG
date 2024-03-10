@@ -20,6 +20,7 @@
             style="?attr/collapsingToolbarLayoutLargeStyle"
             android:layout_width="match_parent"
             android:layout_height="?attr/collapsingToolbarLayoutLargeSize"
+            android:paddingEnd="8dp"
             app:expandedTitleMarginBottom="@dimen/settings_expanded_title_margin_bottom"
             app:expandedTitleMarginEnd="@dimen/settings_expanded_title_margin_end"
             app:expandedTitleMarginStart="@dimen/settings_expanded_title_margin_start"
