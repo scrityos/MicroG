@@ -15,7 +15,16 @@
   ~ limitations under the License.
   -->
 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <Preference
+        android:key="pref_ignore_battery_optimization"
+        android:summary="@string/self_check_resolution_battery_optimizations"
+        android:title="@string/cond_gcm_bat_action"
+        app:layout="@layout/preference_material_card_view" />
+
 
     <Preference
         android:icon="@drawable/ic_self_check"
