@@ -104,13 +104,8 @@ public class UpdateChecker {
         Context context = contextRef.get();
         if (context != null) {
             if (e instanceof IOException) {
-                // Connection error
                 showToast(context, context.getString(R.string.error_connection) + e.getMessage());
-            } else if (e instanceof JSONException) {
-                // JSON parsing error
-                showToast(context, context.getString(R.string.error_json) + e.getMessage());
             } else {
-                // Others errors
                 showToast(context, context.getString(R.string.error_others) + e.getMessage());
             }
         }
