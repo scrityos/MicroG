@@ -44,7 +44,7 @@
 
     <!-- UpdateChecker tag controller-->
 
-    <string name="github_tag_version">5.0</string>
+    <string name="github_tag_version">5.1</string>
 
     <!-- Updater strings-->
 
@@ -54,7 +54,6 @@
     <string name="check_updates_error">Unable to check for updates</string>
 
     <string name="error_connection">Connection error:</string>
-    <string name="error_json">JSON error:</string>
     <string name="error_others">Error:</string>
 
 </resources>
