@@ -22,24 +22,17 @@
 
 </details>
 
-**Support list**
+**Recommended Patches**
 
 [ReVanced](https://github.com/ReVanced/revanced-patches)
 
+[ReVanced Extended (anddea)](https://github.com/anddea/revanced-patches)
+
+[ReVanced Extended (rufusin)](https://github.com/rufusin/revanced-patches)
+
 [YT Advanced (REX)](https://github.com/YT-Advanced/ReX-patches)
 
-<details>
-  <summary>Discontinued</summary>
-‎
-‎ 
-
-[Vanced](https://github.com/TeamVanced)
-
 [ReVanced Extended (RVX)](https://github.com/inotia00/revanced-patches)
-
->Discontinued projects are <b>not recommended for use</b>, do <b>not report any issues</b> if you use one of these projects
-
-</details>
 
 **Download**
 
@@ -56,3 +49,9 @@ alt='Donate with PayPal'
 height="80">](https://bit.ly/2lV0E6u) [<img src="https://raw.githubusercontent.com/WSTxda/QP-Gallery-Releases/master/Images/BMC.svg"
 alt='Donate with BMC'
 height="80">](https://www.buymeacoffee.com/wstxda)
+
+**Credits**
+
+[Shadow578](https://github.com/shadow578) for the implementation of GmsCore for ReVanced
+
+[AyushTNM](https://github.com/ayushTNM) for some useful implementations and ideas
