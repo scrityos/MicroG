@@ -44,7 +44,7 @@
         android:layout="@layout/preference_category_no_label">
 
         <Preference
-            android:icon="@drawable/ic_info_outline"
+            android:icon="@drawable/ic_information"
             android:key="pref_push_app_status"
             android:selectable="false"
             tools:summary="Messages: 1000 (37 MB)\nLast message: 22 min ago\nRegistered since: 3 month ago" />

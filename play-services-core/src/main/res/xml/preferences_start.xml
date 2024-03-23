@@ -24,12 +24,8 @@
         android:title="@string/cond_gcm_bat_action"
         app:layout="@layout/preference_material_card_view" />
 
-    <PreferenceCategory
-        android:key="prefcat_google_services"
-        android:layout="@layout/preference_category_no_label">
-
         <Preference
-            android:icon="@drawable/ic_add_account"
+            android:icon="@drawable/ic_accounts"
             android:key="pref_accounts"
             android:summary="@string/pref_accounts_summary"
             android:title="@string/pref_add_account_title" />
@@ -40,7 +36,7 @@
             android:title="@string/service_name_checkin" />
 
         <Preference
-            android:icon="@drawable/ic_cloud_bell"
+            android:icon="@drawable/ic_cloud_messaging"
             android:key="pref_gcm"
             android:title="@string/service_name_mcs" />
 
@@ -49,11 +45,6 @@
             android:icon="@drawable/ic_hide_launcher_icon"
             android:key="pref_hide_launcher_icon"
             android:title="@string/pref_hide_launcher_icon" />
-
-    </PreferenceCategory>
-    <PreferenceCategory
-        android:key="prefcat_footer"
-        android:layout="@layout/preference_category_no_label">
 
         <Preference
             android:icon="@drawable/ic_developer"
@@ -68,8 +59,7 @@
             android:title="@string/github" />
 
         <Preference
-            android:icon="@drawable/ic_info_outline"
+            android:icon="@drawable/ic_information"
             android:key="pref_about"
             android:title="@string/pref_about_title" />
-    </PreferenceCategory>
 </PreferenceScreen>

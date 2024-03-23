@@ -52,7 +52,7 @@
             android:title="@string/pref_info_status"
             tools:summary="Last registration: 13 hours ago" />
 
-        <PreferenceCategory android:icon="@drawable/ic_info_outline" />
+        <PreferenceCategory android:icon="@drawable/ic_information" />
 
         <org.microg.gms.ui.TextPreference
             android:selectable="false"
