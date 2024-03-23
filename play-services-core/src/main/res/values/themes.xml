@@ -61,8 +61,8 @@
     <style name="Theme.Base.Preference.SwitchBarPreference" parent="@style/Preference.SwitchBar">
         <item name="layout">@layout/preference_material_switch_bar</item>
         <item name="switchBarFrameId">@id/frame</item>
-        <item name="switchBarFrameBackgroundOn">@drawable/material_switch_bar_background</item>
-        <item name="switchBarFrameBackgroundOff">@drawable/material_switch_bar_background</item>
+        <item name="switchBarFrameBackgroundOn">@drawable/material_switch_bar_background_on</item>
+        <item name="switchBarFrameBackgroundOff">@drawable/material_switch_bar_background_off</item>
         <item name="switchBarFrameBackgroundDisabled">@drawable/material_switch_bar_background_disabled</item>
     </style>
 
