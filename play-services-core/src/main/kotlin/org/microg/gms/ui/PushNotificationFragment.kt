@@ -155,7 +155,7 @@ class PushNotificationFragment : PreferenceFragmentCompat() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.menu_advanced -> {
+            R.id.menu_settings -> {
                 findNavController().navigate(R.id.openGcmAdvancedSettings)
                 true
             }

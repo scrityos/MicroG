@@ -84,7 +84,7 @@
     <fragment
         android:id="@+id/gcmAdvancedFragment"
         android:name="org.microg.gms.ui.PushNotificationAdvancedFragment"
-        android:label="@string/menu_advanced" />
+        android:label="@string/menu_settings" />
 
     <fragment
         android:id="@+id/privacyFragment"
