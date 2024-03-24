@@ -96,7 +96,7 @@ Isso pode levar alguns minutos."</string>
     <string name="pref_auth_visible_title">Permitir que aplicativos encontrem contas</string>
     <string name="pref_auth_visible_summary">Quando ativado, todos os aplicativos deste dispositivo poderão ver o endereço de e-mail de suas contas do Google sem autorização prévia</string>
     <string name="pref_auth_include_android_id_title">Autenticar com o registro de dispositivos</string>
-    <string name="pref_auth_include_android_id_summary">Quando desabilitado, as solicitações de autenticação não serão vinculadas ao registro de dispositivos, o que permite que dispositivos não autorizados entrem, mas podem haver consequências imprevistas</string>
+    <string name="pref_auth_include_android_id_summary">Quando desativado, as solicitações de autenticação não serão vinculadas ao registro de dispositivos, o que permite que dispositivos não autorizados entrem, mas podem haver consequências imprevistas</string>
     <string name="pref_auth_strip_device_name_title">Remover nome do dispositivo para autenticação</string>
     <string name="pref_auth_strip_device_name_summary">Quando ativado, solicitações de autenticação não incluirão o nome do dispositivo, o que pode permitir que dispositivos não autorizados façam login, mas pode ter consequências imprevistas</string>
 
@@ -127,7 +127,7 @@ Isso pode levar alguns minutos."</string>
     <string name="gcm_messages_counter">Mensagens: <xliff:g example="123">%1$d</xliff:g> (<xliff:g example="12345">%2$d</xliff:g> bytes)</string>
     <string name="gcm_network_state_disconnected">Desconectado</string>
     <string name="gcm_network_state_connected">Conectado: <xliff:g example="2 hours ago">%1$s</xliff:g></string>
-    <string name="gcm_enable_switch">Receber notificações push</string>
+    <string name="gcm_enable_switch">Notificações push</string>
     <string name="gcm_allow_app_popup">Permitir que <xliff:g example="F-Droid">%1$s</xliff:g> se registre para notificações push?</string>
 
     <string name="pref_push_app_allow_register_title">Permitir registro</string>
@@ -156,6 +156,11 @@ Isso pode levar alguns minutos."</string>
     <string name="push_notifications_summary_values_seconds">%s segundos</string>
     <string name="push_notifications_summary_values_minutes">%s minutos</string>
 
+    <string name="pref_network_google_enabled_summary">Se desativado, todas as conexões com os servidores do Google normalmente feitas pelo MicroG serão negadas. Isso substitui as configurações específicas do serviço</string>
+    <string name="pref_network_google_enabled">Permitir a conexão aos servidores do Google</string>
+    <string name="pref_network_google_use_tor">Conectar ao Google via rede Tor</string>
+    <string name="pref_network_google_use_tor_summary">Exige que o Orbot esteja instalado\\nAinda não há suporte</string>
+
     <!-- Account settings-->
 
     <string name="pref_accounts_summary">Adicionar e gerenciar contas Google</string>
@@ -174,13 +179,9 @@ Isso pode levar alguns minutos."</string>
     <string name="dialog_cancel_button">Cancelar</string>
     <string name="toast_remove_account_success">%s removida</string>
 
-    <!-- Redesign strings-->
+    <!-- Settings options strings-->
 
     <string name="developer">Desenvolvedor</string>
     <string name="github_source">Repositório com o código fonte</string>
     <string name="pref_hide_launcher_icon">Ocultar ícone do launcher</string>
-    <string name="pref_network_google_enabled_summary">Se desativado, todas as conexões com os servidores do Google normalmente feitas pelo MicroG serão negadas. Isso substitui as configurações específicas do serviço</string>
-    <string name="pref_network_google_enabled">Permitir a conexão aos servidores do Google</string>
-    <string name="pref_network_google_use_tor">Conectar ao Google via rede Tor</string>
-    <string name="pref_network_google_use_tor_summary">Exige que o Orbot esteja instalado\\nAinda não há suporte</string>
 </resources>

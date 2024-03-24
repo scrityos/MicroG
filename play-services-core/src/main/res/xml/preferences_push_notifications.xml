@@ -40,7 +40,7 @@
             app:selectable="false"
             tools:summary="Connected since 15 minutes ago" />
 
-        <PreferenceCategory android:icon="@drawable/ic_info_outline" />
+        <PreferenceCategory android:icon="@drawable/ic_information" />
 
         <org.microg.gms.ui.TextPreference
             android:selectable="false"

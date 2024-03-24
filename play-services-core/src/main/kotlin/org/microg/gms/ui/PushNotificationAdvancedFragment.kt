@@ -25,7 +25,7 @@ class PushNotificationAdvancedFragment : PreferenceFragmentCompat() {
     private lateinit var networkOther: ListPreference
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        addPreferencesFromResource(R.xml.preferences_gcm_advanced)
+        addPreferencesFromResource(R.xml.preferences_push_notification_settings)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

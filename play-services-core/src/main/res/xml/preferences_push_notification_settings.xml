@@ -18,15 +18,13 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <org.microg.gms.ui.SwitchBarPreference
+    <SwitchPreferenceCompat
         android:defaultValue="false"
         android:key="gcm_confirm_new_apps"
         android:persistent="false"
-        android:title="@string/pref_gcm_confirm_new_apps_title" />
-
-    <Preference
-        android:selectable="false"
-        android:summary="@string/pref_gcm_confirm_new_apps_summary" />
+        android:summary="@string/pref_gcm_confirm_new_apps_summary"
+        android:title="@string/pref_gcm_confirm_new_apps_title"
+        app:iconSpaceReserved="false" />
 
     <PreferenceCategory
         android:key="prefcat_networks"

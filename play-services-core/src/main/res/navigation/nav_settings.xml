@@ -12,9 +12,6 @@
         android:name="org.microg.gms.ui.SettingsFragment"
         android:label="@string/gms_settings_name">
         <action
-            android:id="@+id/openSelfcheck"
-            app:destination="@id/selfcheckFragment" />
-        <action
             android:id="@+id/openCheckinSettings"
             app:destination="@id/checkinFragment" />
         <action
@@ -87,7 +84,7 @@
     <fragment
         android:id="@+id/gcmAdvancedFragment"
         android:name="org.microg.gms.ui.PushNotificationAdvancedFragment"
-        android:label="@string/menu_advanced" />
+        android:label="@string/menu_settings" />
 
     <fragment
         android:id="@+id/privacyFragment"

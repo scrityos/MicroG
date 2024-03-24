@@ -154,7 +154,7 @@ class AccountsFragment : PreferenceFragmentCompat() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.privacy_menu_item, menu)
+        inflater.inflate(R.menu.accounts_menu_item, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
 

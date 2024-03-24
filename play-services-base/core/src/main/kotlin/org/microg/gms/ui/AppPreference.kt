@@ -99,6 +99,9 @@ abstract class AppPreference : Preference {
             packageName.contains(".revanced.android") -> context.getString(R.string.revanced)
             packageName.contains(".rvx.android") -> context.getString(R.string.revanced_extended)
             packageName.contains(".rex.android") -> context.getString(R.string.youtube_advanced)
+            packageName.contains(".rve.android") -> context.getString(R.string.revanced_extended_rufusin)
+            packageName.contains("anddea.youtube") -> context.getString(R.string.revanced_extended_anddea)
+            packageName.contains("bill.youtube") -> context.getString(R.string.revanced_extended_anddea)
             else -> ""
         }
 

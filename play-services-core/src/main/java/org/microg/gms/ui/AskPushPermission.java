@@ -51,7 +51,7 @@ public class AskPushPermission extends FragmentActivity {
             return;
         }
 
-        View gcmView = getLayoutInflater().inflate(R.layout.ask_gcm, null);
+        View gcmView = getLayoutInflater().inflate(R.layout.ask_push_notification, null);
 
         // Create and show the AlertDialog
         try {

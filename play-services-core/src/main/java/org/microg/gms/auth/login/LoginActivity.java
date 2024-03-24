@@ -17,6 +17,7 @@
 package org.microg.gms.auth.login;
 
 import android.accounts.Account;
+import android.accounts.AccountAuthenticatorResponse;
 import android.accounts.AccountManager;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
@@ -103,6 +104,7 @@ public class LoginActivity extends AssistantActivity {
     private WebView webView;
     private String accountType;
     private AccountManager accountManager;
+    private AccountAuthenticatorResponse response;
     private InputMethodManager inputMethodManager;
     private ViewGroup authContent;
     private int state = 0;
@@ -142,6 +144,12 @@ public class LoginActivity extends AssistantActivity {
                     closeWeb(true);
             }
         });
+        if(getIntent().hasExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE)){
+            Object tempObject = getIntent().getExtras().get("accountAuthenticatorResponse");
+            if (tempObject instanceof AccountAuthenticatorResponse) {
+                response = (AccountAuthenticatorResponse) tempObject;
+            }
+        }
         if (getIntent().hasExtra(EXTRA_TOKEN)) {
             if (getIntent().hasExtra(EXTRA_EMAIL)) {
                 AccountManager accountManager = AccountManager.get(this);
@@ -194,6 +202,14 @@ public class LoginActivity extends AssistantActivity {
         } else if (state == -1) {
             setResult(RESULT_CANCELED);
             finish();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if(response != null){
+            response.onError(AccountManager.ERROR_CODE_CANCELED, "Canceled");
         }
     }
 
@@ -353,7 +369,15 @@ public class LoginActivity extends AssistantActivity {
                     }
                 });
     }
-
+    private void returnSuccessResponse(Account account){
+        if(response != null){
+            Bundle bd = new Bundle();
+            bd.putString(AccountManager.KEY_ACCOUNT_NAME,account.name);
+            bd.putBoolean("new_account_created",false);
+            bd.putString(AccountManager.KEY_ACCOUNT_TYPE,accountType);
+            response.onResult(bd);
+        }
+    }
     private void retrieveGmsToken(final Account account) {
         final AuthManager authManager = new AuthManager(this, account.name, GOOGLE_GMS_PACKAGE_NAME, "ac2dm");
         authManager.setPermitted(true);
@@ -374,7 +398,11 @@ public class LoginActivity extends AssistantActivity {
                         String accountId = PeopleManager.loadUserInfo(LoginActivity.this, account);
                         if (!TextUtils.isEmpty(accountId))
                             accountManager.setUserData(account, "GoogleUserId", accountId);
+                        if (isAuthVisible(LoginActivity.this) && SDK_INT >= 26) {
+                            accountManager.setAccountVisibility(account, PACKAGE_NAME_KEY_LEGACY_NOT_VISIBLE, VISIBILITY_USER_MANAGED_VISIBLE);
+                        }
                         checkin(true);
+                        returnSuccessResponse(account);
                         finish();
                     }
 
