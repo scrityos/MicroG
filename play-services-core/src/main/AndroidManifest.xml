@@ -512,6 +512,13 @@
                 <action android:name="com.google.android.gms.identity.service.BIND" />
             </intent-filter>
         </service>
+
+        <meta-data
+                android:name="org.microg.gms.settings.checkin_enable_service"
+                android:value="true" />
+        <meta-data
+                android:name="org.microg.gms.settings.gcm_enable_mcs_service"
+                android:value="true" />
     </application>
 
 </manifest>
