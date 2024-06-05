@@ -61,35 +61,35 @@ class AccountsFragment : PreferenceFragmentCompat() {
 
         val accountManager = AccountManager.get(context)
         val accounts = accountManager.getAccountsByType(AuthConstants.DEFAULT_ACCOUNT_TYPE)
-        
+
         clearAccountPreferences()
 
         val preferenceCategory = findPreference<PreferenceCategory>("prefcat_current_accounts")
 
-        accounts.forEach { account ->
-            val photo = PeopleManager.getOwnerAvatarBitmap(context, account.name, false)
-            val newPreference = Preference(requireContext()).apply {
-                title = getDisplayName(account)
-                summary = account.name
-                icon = getCircleBitmapDrawable(photo)
-                key = "account:${account.name}"
-                order = 0
+        lifecycleScope.launch(Dispatchers.Main) {
+            accounts.forEach { account ->
+                val photo = PeopleManager.getOwnerAvatarBitmap(context, account.name, false)
+                val newPreference = Preference(requireContext()).apply {
+                    title = getDisplayName(account)
+                    summary = account.name
+                    icon = getCircleBitmapDrawable(photo)
+                    key = "account:${account.name}"
+                    order = 0
 
-                setOnPreferenceClickListener {
-                    showConfirmationDialog(account.name)
-                    true
+                    setOnPreferenceClickListener {
+                        showConfirmationDialog(account.name)
+                        true
+                    }
                 }
-            }
 
-            if (photo == null) {
-                lifecycleScope.launch(Dispatchers.IO) {
+                if (photo == null) {
                     withContext(Dispatchers.IO) {
                         PeopleManager.getOwnerAvatarBitmap(context, account.name, true)
                     }?.let { newPreference.icon = getCircleBitmapDrawable(it) }
                 }
-            }
 
-            preferenceCategory?.addPreference(newPreference)
+                preferenceCategory?.addPreference(newPreference)
+            }
         }
     }
 
@@ -193,5 +193,4 @@ class AccountsFragment : PreferenceFragmentCompat() {
     private fun showToast(message: String) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
-
 }
