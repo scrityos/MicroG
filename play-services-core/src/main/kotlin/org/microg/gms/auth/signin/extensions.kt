@@ -55,24 +55,24 @@ fun getServerAuthTokenManager(context: Context, packageName: String, options: Go
     val serverAuthTokenManager = AuthManager(context, account.name, packageName, "oauth2:server:client_id:${options.serverClientId}:api_scope:${options.scopeUris.joinToString(" ")}")
     serverAuthTokenManager.includeEmail = if (options.includeEmail) "1" else "0"
     serverAuthTokenManager.includeProfile = if (options.includeProfile) "1" else "0"
-    serverAuthTokenManager.setOauth2Prompt(if (options.isForceCodeForRefreshToken) "consent" else "auto")
+    serverAuthTokenManager.setOauth2Prompt("auto")
     serverAuthTokenManager.setItCaveatTypes("2")
     return serverAuthTokenManager
 }
 
 suspend fun performSignIn(context: Context, packageName: String, options: GoogleSignInOptions?, account: Account, permitted: Boolean = false): GoogleSignInAccount? {
     val authManager = getOAuthManager(context, packageName, options, account)
-    if (permitted) authManager.isPermitted = true
     val authResponse = withContext(Dispatchers.IO) {
+        if (permitted) authManager.isPermitted = true
         authManager.requestAuth(true)
     }
     if (authResponse.auth == null) return null
-
+    val tag = "AuthSignIn"
     val scopes = options?.scopes.orEmpty().sortedBy { it.scopeUri }
     val includeId = scopes.any { it.scopeUri == Scopes.OPENID } || scopes.any { it.scopeUri == Scopes.GAMES_LITE }
     val includeEmail = scopes.any { it.scopeUri == Scopes.EMAIL } || scopes.any { it.scopeUri == Scopes.GAMES_LITE }
     val includeProfile = scopes.any { it.scopeUri == Scopes.PROFILE }
-    Log.d("AuthSignIn", "id token requested: ${options?.isIdTokenRequested == true}, serverClientId = ${options?.serverClientId}")
+    Log.d(tag, "id token requested: ${options?.isIdTokenRequested == true}, serverClientId = ${options?.serverClientId}, permitted = ${authManager.isPermitted}")
     val idTokenResponse = getIdTokenManager(context, packageName, options, account)?.let {
         it.isPermitted = authManager.isPermitted
         withContext(Dispatchers.IO) { it.requestAuth(true) }

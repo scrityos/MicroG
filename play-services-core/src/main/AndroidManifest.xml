@@ -71,7 +71,7 @@
     <uses-permission android:name="${basePackageName}.android.c2dm.permission.SEND" />
     <uses-permission android:name="${basePackageName}.android.gtalkservice.permission.GTALK_SERVICE" />
 
-    <uses-permission android:name="org.microg.gms.STATUS_BROADCAST" />
+    <uses-permission android:name="${basePackageName}.microg.gms.STATUS_BROADCAST" />
 
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -462,32 +462,27 @@
             android:taskAffinity="org.microg.gms.settings"
             android:theme="@style/AppTheme.Dialog">
             <intent-filter>
-                <action android:name="${basePackageName}.android.gms.accountsettings.MY_ACCOUNT" />
-                <action android:name="${basePackageName}.android.gms.accountsettings.ACCOUNT_PREFERENCES_SETTINGS" />
-                <action android:name="${basePackageName}.android.gms.accountsettings.PRIVACY_SETTINGS" />
-                <action android:name="${basePackageName}.android.gms.accountsettings.SECURITY_SETTINGS" />
+                <action android:name="com.google.android.gms.accountsettings.MY_ACCOUNT" />
+                <action android:name="com.google.android.gms.accountsettings.ACCOUNT_PREFERENCES_SETTINGS" />
+                <action android:name="com.google.android.gms.accountsettings.PRIVACY_SETTINGS" />
+                <action android:name="com.google.android.gms.accountsettings.SECURITY_SETTINGS" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
-        <activity
-            android:name="org.microg.gms.accountsettings.ui.LoaderActivity"
+        <activity-alias
+            android:name="org.microg.gms.accountsettings.ui.ManagerActivity"
             android:process=":ui"
             android:exported="true"
             android:excludeFromRecents="true"
-            android:theme="@style/AppTheme.Dialog">
+            android:targetActivity="org.microg.gms.ui.MainSettingsActivity"
+            android:taskAffinity="org.microg.gms.settings">
             <intent-filter>
-                <action android:name="${basePackageName}.android.gms.accountsettings.action.VIEW_SETTINGS" />
+                <action android:name="com.google.android.gms.accountsettings.action.VIEW_SETTINGS" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="${basePackageName}.android.gms.accountsettings.action.BROWSE_SETTINGS" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-            </intent-filter>
-        </activity>
+        </activity-alias>
 
         <!-- Other -->
 
