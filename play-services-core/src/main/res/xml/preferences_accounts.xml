@@ -22,4 +22,17 @@
             android:summary="@string/pref_accounts_manage_accounts_summary"
             android:title="@string/pref_accounts_manage_accounts_title" />
     </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/prefcat_youtube_activity">
+
+        <Preference
+            android:key="pref_manage_history"
+            android:icon="@drawable/ic_youtube_history"
+            android:title="@string/pref_manage_all_history" />
+
+        <Preference
+            android:key="pref_your_data"
+            android:icon="@drawable/ic_youtube_data"
+            android:title="@string/pref_data_in_youtube" />
+    </PreferenceCategory>
 </PreferenceScreen>

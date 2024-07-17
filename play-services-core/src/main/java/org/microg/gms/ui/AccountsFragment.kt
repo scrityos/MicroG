@@ -5,6 +5,7 @@ import android.accounts.AccountManager
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
@@ -148,6 +149,16 @@ class AccountsFragment : PreferenceFragmentCompat() {
             } catch (activityNotFoundException: ActivityNotFoundException) {
                 Log.e(TAG, "Failed to launch login activity", activityNotFoundException)
             }
+            true
+        }
+
+        findPreference<Preference>("pref_manage_history")?.setOnPreferenceClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://myactivity.google.com/product/youtube")))
+            true
+        }
+
+        findPreference<Preference>("pref_your_data")?.setOnPreferenceClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://myaccount.google.com/yourdata/youtube")))
             true
         }
     }
