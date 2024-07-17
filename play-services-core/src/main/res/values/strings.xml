@@ -13,7 +13,8 @@
     <string name="ask_scope_permission_title"><xliff:g example="F-Droid">%1$s</xliff:g> would like to:</string>
     <string name="ask_service_permission_title"><xliff:g example="F-Droid">%1$s</xliff:g> would like to use:</string>
 
-    <string name="privacy_title">Privacy</string>
+    <string name="pref_privacy_title">Privacy</string>
+    <string name="pref_privacy_summary">Privacy settings for authentication and apps</string>
     <string name="prefcat_applications">Applications</string>
     <string name="prefcat_authentication">Authentication</string>
 

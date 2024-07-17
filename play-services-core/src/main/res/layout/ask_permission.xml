@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:paddingTop="10dp"
-        android:text="@string/privacy_title"
+        android:text="@string/pref_privacy_title"
         android:textColor="?attr/colorPrimary" />
 
     <View

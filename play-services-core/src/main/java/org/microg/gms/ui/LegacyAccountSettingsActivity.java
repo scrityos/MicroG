@@ -21,6 +21,7 @@ import android.accounts.AccountManager;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 import androidx.preference.Preference;
 
@@ -39,13 +40,23 @@ import static org.microg.gms.auth.AuthManager.PREF_AUTH_VISIBLE;
 public class LegacyAccountSettingsActivity extends AbstractSettingsActivity {
 
     @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+    }
+
+    @Override
     protected Fragment getFragment() {
         return new AccountSettingsFragment();
     }
 
     public static class AccountSettingsFragment extends ResourceSettingsFragment {
         public AccountSettingsFragment() {
-            preferencesResource =  R.xml.preferences_account;
+            preferencesResource = R.xml.preferences_account;
         }
 
         @Override
