@@ -31,6 +31,7 @@ import org.microg.gms.auth.AuthConstants
 import org.microg.gms.auth.login.LoginActivity
 import org.microg.gms.people.DatabaseHelper
 import org.microg.gms.people.PeopleManager
+import org.microg.tools.ui.AbstractSettingsActivity
 
 class AccountsFragment : PreferenceFragmentCompat() {
 
@@ -83,13 +84,14 @@ class AccountsFragment : PreferenceFragmentCompat() {
                     }
                 }
 
-                if (photo == null) {
-                    withContext(Dispatchers.IO) {
-                        PeopleManager.getOwnerAvatarBitmap(context, account.name, true)
-                    }?.let { newPreference.icon = getCircleBitmapDrawable(it) }
+                if (preferenceCategory?.findPreference<Preference>(newPreference.key) == null) {
+                    if (photo == null) {
+                        withContext(Dispatchers.IO) {
+                            PeopleManager.getOwnerAvatarBitmap(context, account.name, true)
+                        }?.let { newPreference.icon = getCircleBitmapDrawable(it) }
+                    }
+                    preferenceCategory?.addPreference(newPreference)
                 }
-
-                preferenceCategory?.addPreference(newPreference)
             }
         }
     }
@@ -138,7 +140,7 @@ class AccountsFragment : PreferenceFragmentCompat() {
             try {
                 startActivity(Intent(Settings.ACTION_SYNC_SETTINGS))
             } catch (activityNotFoundException: ActivityNotFoundException) {
-                Log.e(TAG, "Failed to launch sync settings", activityNotFoundException)
+                Log.e(tag, "Failed to launch sync settings", activityNotFoundException)
             }
             true
         }
@@ -147,7 +149,7 @@ class AccountsFragment : PreferenceFragmentCompat() {
             try {
                 startActivity(Intent(requireContext(), LoginActivity::class.java))
             } catch (activityNotFoundException: ActivityNotFoundException) {
-                Log.e(TAG, "Failed to launch login activity", activityNotFoundException)
+                Log.e(tag, "Failed to launch login activity", activityNotFoundException)
             }
             true
         }
@@ -203,5 +205,20 @@ class AccountsFragment : PreferenceFragmentCompat() {
 
     private fun showToast(message: String) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    }
+
+    class AsActivity : AbstractSettingsActivity() {
+        override fun getFragment(): PreferenceFragmentCompat {
+            return AccountsFragment()
+        }
+
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        }
+
+        override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+            return false
+        }
     }
 }
