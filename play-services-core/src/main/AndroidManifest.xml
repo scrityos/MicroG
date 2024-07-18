@@ -486,7 +486,12 @@
             android:taskAffinity="org.microg.gms.settings">
             <intent-filter>
                 <action android:name="com.google.android.gms.accountsettings.action.VIEW_SETTINGS" />
+                <action android:name="${basePackageName}.android.gms.accountsettings.action.VIEW_SETTINGS" />
+                <action android:name="com.google.android.gms.accountsettings.action.BROWSE_SETTINGS" />
+                <action android:name="${basePackageName}.android.gms.accountsettings.action.BROWSE_SETTINGS" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity-alias>
 
