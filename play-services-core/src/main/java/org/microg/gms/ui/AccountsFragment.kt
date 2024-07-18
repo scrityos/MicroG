@@ -5,18 +5,15 @@ import android.accounts.AccountManager
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceFragmentCompat
@@ -30,6 +27,7 @@ import org.microg.gms.auth.AuthConstants
 import org.microg.gms.auth.login.LoginActivity
 import org.microg.gms.people.DatabaseHelper
 import org.microg.gms.people.PeopleManager
+import org.microg.tools.ui.AbstractSettingsActivity
 
 class AccountsFragment : PreferenceFragmentCompat() {
 
@@ -82,13 +80,14 @@ class AccountsFragment : PreferenceFragmentCompat() {
                     }
                 }
 
-                if (photo == null) {
-                    withContext(Dispatchers.IO) {
-                        PeopleManager.getOwnerAvatarBitmap(context, account.name, true)
-                    }?.let { newPreference.icon = getCircleBitmapDrawable(it) }
+                if (preferenceCategory?.findPreference<Preference>(newPreference.key) == null) {
+                    if (photo == null) {
+                        withContext(Dispatchers.IO) {
+                            PeopleManager.getOwnerAvatarBitmap(context, account.name, true)
+                        }?.let { newPreference.icon = getCircleBitmapDrawable(it) }
+                    }
+                    preferenceCategory?.addPreference(newPreference)
                 }
-
-                preferenceCategory?.addPreference(newPreference)
             }
         }
     }
@@ -137,7 +136,7 @@ class AccountsFragment : PreferenceFragmentCompat() {
             try {
                 startActivity(Intent(Settings.ACTION_SYNC_SETTINGS))
             } catch (activityNotFoundException: ActivityNotFoundException) {
-                Log.e(TAG, "Failed to launch sync settings", activityNotFoundException)
+                Log.e(tag, "Failed to launch sync settings", activityNotFoundException)
             }
             true
         }
@@ -146,29 +145,28 @@ class AccountsFragment : PreferenceFragmentCompat() {
             try {
                 startActivity(Intent(requireContext(), LoginActivity::class.java))
             } catch (activityNotFoundException: ActivityNotFoundException) {
-                Log.e(TAG, "Failed to launch login activity", activityNotFoundException)
+                Log.e(tag, "Failed to launch login activity", activityNotFoundException)
             }
             true
         }
-    }
 
-    init {
-        setHasOptionsMenu(true)
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.accounts_menu_item, menu)
-        super.onCreateOptionsMenu(menu, inflater)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.privacy_settings -> {
-                findNavController().navigate(R.id.privacyFragment)
-                true
+        findPreference<Preference>("pref_privacy")?.setOnPreferenceClickListener {
+            try {
+                startActivity(Intent(requireContext(), LegacyAccountSettingsActivity::class.java))
+            } catch (activityNotFoundException: ActivityNotFoundException) {
+                Log.e(tag, "Failed to launch privacy activity", activityNotFoundException)
             }
+            true
+        }
 
-            else -> super.onOptionsItemSelected(item)
+        findPreference<Preference>("pref_manage_history")?.setOnPreferenceClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://myactivity.google.com/product/youtube")))
+            true
+        }
+
+        findPreference<Preference>("pref_your_data")?.setOnPreferenceClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://myaccount.google.com/yourdata/youtube")))
+            true
         }
     }
 
@@ -192,5 +190,16 @@ class AccountsFragment : PreferenceFragmentCompat() {
 
     private fun showToast(message: String) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    }
+
+    class AsActivity : AbstractSettingsActivity() {
+        override fun getFragment(): PreferenceFragmentCompat {
+            return AccountsFragment()
+        }
+
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        }
     }
 }

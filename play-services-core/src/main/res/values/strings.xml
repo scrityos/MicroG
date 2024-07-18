@@ -13,7 +13,8 @@
     <string name="ask_scope_permission_title"><xliff:g example="F-Droid">%1$s</xliff:g> would like to:</string>
     <string name="ask_service_permission_title"><xliff:g example="F-Droid">%1$s</xliff:g> would like to use:</string>
 
-    <string name="privacy_title">Privacy</string>
+    <string name="pref_privacy_title">Privacy</string>
+    <string name="pref_privacy_summary">Privacy settings for authentication and apps</string>
     <string name="prefcat_applications">Applications</string>
     <string name="prefcat_authentication">Authentication</string>
 
@@ -119,8 +120,8 @@ This can take a couple of minutes"</string>
 
     <string name="pref_info_status">Status</string>
 
-    <string name="pref_add_account_title">Accounts</string>
-    <string name="pref_add_account_summary">Login in new Google account</string>
+    <string name="pref_account_title">Accounts</string>
+    <string name="pref_account_summary">Login in new Google account</string>
     <string name="pref_gcm_enable_mcs_summary">Cloud Messaging is a push notification provider used for modified apps. To use it you must enable device registration</string>
     <string name="pref_gcm_confirm_new_apps_title">Confirm new apps</string>
     <string name="pref_gcm_confirm_new_apps_summary">Ask before registering a new app to receive push notifications</string>
@@ -180,6 +181,10 @@ This can take a couple of minutes"</string>
     <string name="pref_accounts_add_account_title">Add account</string>
     <string name="pref_accounts_manage_accounts_title">Manage accounts</string>
     <string name="pref_accounts_manage_accounts_summary">Open device accounts manager</string>
+    <!-- YouTube activity-->
+    <string name="prefcat_youtube_activity">YouTube Activity</string>
+    <string name="pref_manage_all_history">Manage all history</string>
+    <string name="pref_data_in_youtube">Your data in YouTube</string>
 
     <!-- Account remove dialog-->
 

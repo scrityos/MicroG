@@ -1,25 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory
         android:key="prefcat_current_accounts"
         android:title="@string/prefcat_accounts_login_accounts_title"
         android:visibility="gone" />
 
+    <Preference
+        android:icon="@drawable/ic_add_new_account"
+        android:key="pref_add_account"
+        app:allowDividerBelow="true"
+        android:title="@string/pref_accounts_add_account_title" />
+
     <PreferenceCategory
         android:key="prefcat_account_settings"
         android:title="@string/prefcat_accounts_options_title">
 
         <Preference
-            android:icon="@drawable/ic_add_new_account"
-            android:key="pref_add_account"
-            android:summary="@string/pref_add_account_summary"
-            android:title="@string/pref_accounts_add_account_title" />
+            android:icon="@drawable/ic_privacy"
+            android:key="pref_privacy"
+            android:summary="@string/pref_privacy_summary"
+            android:title="@string/pref_privacy_title" />
 
         <Preference
             android:icon="@drawable/ic_manage_account"
             android:key="pref_manage_accounts"
             android:summary="@string/pref_accounts_manage_accounts_summary"
             android:title="@string/pref_accounts_manage_accounts_title" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/prefcat_youtube_activity">
+
+        <Preference
+            android:key="pref_manage_history"
+            android:icon="@drawable/ic_youtube_history"
+            android:title="@string/pref_manage_all_history" />
+
+        <Preference
+            android:key="pref_your_data"
+            android:icon="@drawable/ic_youtube_data"
+            android:title="@string/pref_data_in_youtube" />
     </PreferenceCategory>
 </PreferenceScreen>

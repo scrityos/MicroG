@@ -450,8 +450,14 @@
             android:taskAffinity="org.microg.gms.settings" />
 
         <activity
+            android:name="org.microg.gms.ui.AccountsFragment$AsActivity"
+            android:label="@string/pref_account_title"
+            android:process=":ui"
+            android:taskAffinity="org.microg.gms.settings" />
+
+        <activity
             android:name="org.microg.gms.ui.LegacyAccountSettingsActivity"
-            android:label="@string/privacy_title"
+            android:label="@string/pref_privacy_title"
             android:process=":ui"
             android:taskAffinity="org.microg.gms.settings" />
 
@@ -476,7 +482,7 @@
             android:process=":ui"
             android:exported="true"
             android:excludeFromRecents="true"
-            android:targetActivity="org.microg.gms.ui.MainSettingsActivity"
+            android:targetActivity="org.microg.gms.ui.AccountsFragment$AsActivity"
             android:taskAffinity="org.microg.gms.settings">
             <intent-filter>
                 <action android:name="com.google.android.gms.accountsettings.action.VIEW_SETTINGS" />

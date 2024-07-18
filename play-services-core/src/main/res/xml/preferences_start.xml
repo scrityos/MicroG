@@ -28,7 +28,7 @@
             android:icon="@drawable/ic_accounts"
             android:key="pref_accounts"
             android:summary="@string/pref_accounts_summary"
-            android:title="@string/pref_add_account_title" />
+            android:title="@string/pref_account_title" />
 
         <Preference
             android:icon="@drawable/ic_device_login"
