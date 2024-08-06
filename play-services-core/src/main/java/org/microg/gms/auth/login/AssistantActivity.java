@@ -16,43 +16,33 @@
 
 package org.microg.gms.auth.login;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.gms.R;
 
 public abstract class AssistantActivity extends AppCompatActivity {
-    private static final int TITLE_MIN_HEIGHT = 64;
-    private static final double TITLE_WIDTH_FACTOR = (8.0 / 18.0);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_assistant);
-        formatTitle();
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(v -> onBackPressed());
+
         findViewById(R.id.spoof_button).setOnClickListener(v -> onHuaweiButtonClicked());
         findViewById(R.id.next_button).setOnClickListener(v -> onNextButtonClicked());
-    }
-
-    @SuppressLint("WrongViewCast")
-    private void formatTitle() {
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-            double widthPixels = (double) (getResources().getDisplayMetrics().widthPixels);
-            findViewById(R.id.title_container).getLayoutParams().height =
-                    (int) (dpToPx(TITLE_MIN_HEIGHT) + (TITLE_WIDTH_FACTOR * widthPixels));
-        } else {
-            findViewById(R.id.title_container).getLayoutParams().height = dpToPx(TITLE_MIN_HEIGHT);
-        }
     }
 
     public void setSpoofButtonText(@StringRes int res) {
@@ -82,17 +72,9 @@ public abstract class AssistantActivity extends AppCompatActivity {
     }
 
     protected void onHuaweiButtonClicked() {
-
     }
 
     protected void onNextButtonClicked() {
-
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        formatTitle();
     }
 
     @Override
