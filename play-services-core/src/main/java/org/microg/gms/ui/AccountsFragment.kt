@@ -124,30 +124,36 @@ class AccountsFragment : PreferenceFragmentCompat() {
         clearAccountPreferences()
 
         val preferenceCategory = findPreference<PreferenceCategory>("prefcat_current_accounts")
+        val accountsCategoryVisible = accounts.isNotEmpty()
 
-        lifecycleScope.launch(Dispatchers.Main) {
-            accounts.forEach { account ->
-                val photo = PeopleManager.getOwnerAvatarBitmap(context, account.name, false)
-                val newPreference = Preference(requireContext()).apply {
-                    title = getDisplayName(account)
-                    summary = account.name
-                    icon = getCircleBitmapDrawable(photo)
-                    key = "account:${account.name}"
-                    order = 0
+        preferenceCategory?.let {
+            it.isVisible = accountsCategoryVisible
+            if (accountsCategoryVisible) {
+                lifecycleScope.launch(Dispatchers.Main) {
+                    accounts.forEach { account ->
+                        val photo = PeopleManager.getOwnerAvatarBitmap(context, account.name, false)
+                        val newPreference = Preference(requireContext()).apply {
+                            title = getDisplayName(account)
+                            summary = account.name
+                            icon = getCircleBitmapDrawable(photo)
+                            key = "account:${account.name}"
+                            order = 0
 
-                    setOnPreferenceClickListener {
-                        showConfirmationDialog(account.name)
-                        true
+                            setOnPreferenceClickListener {
+                                showConfirmationDialog(account.name)
+                                true
+                            }
+                        }
+
+                        if (preferenceCategory.findPreference<Preference>(newPreference.key) == null) {
+                            if (photo == null) {
+                                withContext(Dispatchers.IO) {
+                                    PeopleManager.getOwnerAvatarBitmap(context, account.name, true)
+                                }?.let { newPreference.icon = getCircleBitmapDrawable(it) }
+                            }
+                            preferenceCategory.addPreference(newPreference)
+                        }
                     }
-                }
-
-                if (preferenceCategory?.findPreference<Preference>(newPreference.key) == null) {
-                    if (photo == null) {
-                        withContext(Dispatchers.IO) {
-                            PeopleManager.getOwnerAvatarBitmap(context, account.name, true)
-                        }?.let { newPreference.icon = getCircleBitmapDrawable(it) }
-                    }
-                    preferenceCategory?.addPreference(newPreference)
                 }
             }
         }
