@@ -7,12 +7,6 @@
         android:title="@string/prefcat_accounts_login_accounts_title"
         android:visibility="gone" />
 
-    <Preference
-        android:icon="@drawable/ic_add_new_account"
-        android:key="pref_add_account"
-        app:allowDividerBelow="true"
-        android:title="@string/pref_accounts_add_account_title" />
-
     <PreferenceCategory
         android:key="prefcat_account_settings"
         android:title="@string/prefcat_accounts_options_title">

@@ -15,12 +15,14 @@ import android.os.Bundle
 import android.os.PowerManager
 import android.provider.Settings
 import android.util.Log
+import android.view.View
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
 import androidx.preference.SwitchPreferenceCompat
 import com.google.android.gms.R
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import kotlinx.coroutines.launch
 import org.microg.gms.checkin.CheckinPreferences
 import org.microg.gms.gcm.GcmDatabase
@@ -180,6 +182,10 @@ class SettingsFragment : ResourceSettingsFragment() {
 
     override fun onResume() {
         super.onResume()
+
+        val fab = requireActivity().findViewById<ExtendedFloatingActionButton>(R.id.preference_fab)
+        fab?.visibility = View.GONE
+
         updateBatteryOptimizationPreferenceVisibility()
         val context = requireContext()
         if (GcmPrefs.get(requireContext()).isEnabled) {

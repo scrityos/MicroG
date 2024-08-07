@@ -19,6 +19,7 @@ import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceFragmentCompat
 import com.google.android.gms.R
 import com.google.android.material.color.MaterialColors
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.transition.platform.MaterialSharedAxis
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -27,11 +28,12 @@ import org.microg.gms.auth.AuthConstants
 import org.microg.gms.auth.login.LoginActivity
 import org.microg.gms.people.DatabaseHelper
 import org.microg.gms.people.PeopleManager
-import org.microg.tools.ui.AbstractSettingsActivity
 
 class AccountsFragment : PreferenceFragmentCompat() {
 
     private val tag = AccountsFragment::class.java.simpleName
+
+    private lateinit var fab: ExtendedFloatingActionButton
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         addPreferencesFromResource(R.xml.preferences_accounts)
@@ -44,9 +46,68 @@ class AccountsFragment : PreferenceFragmentCompat() {
         reenterTransition = MaterialSharedAxis(MaterialSharedAxis.X, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        view.setBackgroundColor(MaterialColors.getColor(view, android.R.attr.colorBackground))
+
+        fab = requireActivity().findViewById(R.id.preference_fab)
+        fab.text = getString(R.string.pref_accounts_add_account_title)
+        fab.setIconResource(R.drawable.ic_add_new_account)
+        fab.setOnClickListener {
+            try {
+                startActivity(Intent(requireContext(), LoginActivity::class.java))
+            } catch (activityNotFoundException: ActivityNotFoundException) {
+                Log.e(tag, "Failed to launch login activity", activityNotFoundException)
+            }
+        }
+        fab.show()
+
+        findPreference<Preference>("pref_manage_accounts")?.setOnPreferenceClickListener {
+            try {
+                startActivity(Intent(Settings.ACTION_SYNC_SETTINGS))
+            } catch (activityNotFoundException: ActivityNotFoundException) {
+                Log.e(tag, "Failed to launch sync settings", activityNotFoundException)
+            }
+            true
+        }
+
+        findPreference<Preference>("pref_privacy")?.setOnPreferenceClickListener {
+            try {
+                startActivity(Intent(requireContext(), LegacyAccountSettingsActivity::class.java))
+            } catch (activityNotFoundException: ActivityNotFoundException) {
+                Log.e(tag, "Failed to launch privacy activity", activityNotFoundException)
+            }
+            true
+        }
+
+        findPreference<Preference>("pref_manage_history")?.setOnPreferenceClickListener {
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW, Uri.parse("https://myactivity.google.com/product/youtube")
+                )
+            )
+            true
+        }
+
+        findPreference<Preference>("pref_your_data")?.setOnPreferenceClickListener {
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW, Uri.parse("https://myaccount.google.com/yourdata/youtube")
+                )
+            )
+            true
+        }
+    }
+
     override fun onResume() {
         super.onResume()
+        fab.show()
         updateSettings()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        fab.hide()
     }
 
     private fun clearAccountPreferences() {
@@ -128,48 +189,6 @@ class AccountsFragment : PreferenceFragmentCompat() {
         }
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        view.setBackgroundColor(MaterialColors.getColor(view, android.R.attr.colorBackground))
-
-        findPreference<Preference>("pref_manage_accounts")?.setOnPreferenceClickListener {
-            try {
-                startActivity(Intent(Settings.ACTION_SYNC_SETTINGS))
-            } catch (activityNotFoundException: ActivityNotFoundException) {
-                Log.e(tag, "Failed to launch sync settings", activityNotFoundException)
-            }
-            true
-        }
-
-        findPreference<Preference>("pref_add_account")?.setOnPreferenceClickListener {
-            try {
-                startActivity(Intent(requireContext(), LoginActivity::class.java))
-            } catch (activityNotFoundException: ActivityNotFoundException) {
-                Log.e(tag, "Failed to launch login activity", activityNotFoundException)
-            }
-            true
-        }
-
-        findPreference<Preference>("pref_privacy")?.setOnPreferenceClickListener {
-            try {
-                startActivity(Intent(requireContext(), LegacyAccountSettingsActivity::class.java))
-            } catch (activityNotFoundException: ActivityNotFoundException) {
-                Log.e(tag, "Failed to launch privacy activity", activityNotFoundException)
-            }
-            true
-        }
-
-        findPreference<Preference>("pref_manage_history")?.setOnPreferenceClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://myactivity.google.com/product/youtube")))
-            true
-        }
-
-        findPreference<Preference>("pref_your_data")?.setOnPreferenceClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://myaccount.google.com/yourdata/youtube")))
-            true
-        }
-    }
-
     private fun getDisplayName(account: Account): String? {
         val databaseHelper = DatabaseHelper(requireContext())
         val cursor = databaseHelper.getOwner(account.name)
@@ -190,16 +209,5 @@ class AccountsFragment : PreferenceFragmentCompat() {
 
     private fun showToast(message: String) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
-    }
-
-    class AsActivity : AbstractSettingsActivity() {
-        override fun getFragment(): PreferenceFragmentCompat {
-            return AccountsFragment()
-        }
-
-        override fun onCreate(savedInstanceState: Bundle?) {
-            super.onCreate(savedInstanceState)
-            supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        }
     }
 }
