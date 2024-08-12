@@ -37,7 +37,7 @@ class AccountsFragment : PreferenceFragmentCompat() {
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         addPreferencesFromResource(R.xml.preferences_accounts)
-        updateSettings()
+        refreshAccountSettings()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,59 +50,14 @@ class AccountsFragment : PreferenceFragmentCompat() {
         super.onViewCreated(view, savedInstanceState)
         view.setBackgroundColor(MaterialColors.getColor(view, android.R.attr.colorBackground))
 
-        fab = requireActivity().findViewById(R.id.preference_fab)
-        fab.text = getString(R.string.pref_accounts_add_account_title)
-        fab.setIconResource(R.drawable.ic_add_new_account)
-        fab.setOnClickListener {
-            try {
-                startActivity(Intent(requireContext(), LoginActivity::class.java))
-            } catch (activityNotFoundException: ActivityNotFoundException) {
-                Log.e(tag, "Failed to launch login activity", activityNotFoundException)
-            }
-        }
-        fab.show()
-
-        findPreference<Preference>("pref_manage_accounts")?.setOnPreferenceClickListener {
-            try {
-                startActivity(Intent(Settings.ACTION_SYNC_SETTINGS))
-            } catch (activityNotFoundException: ActivityNotFoundException) {
-                Log.e(tag, "Failed to launch sync settings", activityNotFoundException)
-            }
-            true
-        }
-
-        findPreference<Preference>("pref_privacy")?.setOnPreferenceClickListener {
-            try {
-                startActivity(Intent(requireContext(), LegacyAccountSettingsActivity::class.java))
-            } catch (activityNotFoundException: ActivityNotFoundException) {
-                Log.e(tag, "Failed to launch privacy activity", activityNotFoundException)
-            }
-            true
-        }
-
-        findPreference<Preference>("pref_manage_history")?.setOnPreferenceClickListener {
-            startActivity(
-                Intent(
-                    Intent.ACTION_VIEW, Uri.parse("https://myactivity.google.com/product/youtube")
-                )
-            )
-            true
-        }
-
-        findPreference<Preference>("pref_your_data")?.setOnPreferenceClickListener {
-            startActivity(
-                Intent(
-                    Intent.ACTION_VIEW, Uri.parse("https://myaccount.google.com/yourdata/youtube")
-                )
-            )
-            true
-        }
+        addAccountFab()
+        setupPreferenceListeners()
     }
 
     override fun onResume() {
         super.onResume()
         fab.show()
-        updateSettings()
+        refreshAccountSettings()
     }
 
     override fun onStop() {
@@ -110,14 +65,59 @@ class AccountsFragment : PreferenceFragmentCompat() {
         fab.hide()
     }
 
-    private fun clearAccountPreferences() {
-        val preferenceCategory = findPreference<PreferenceCategory>("prefcat_current_accounts")
-        preferenceCategory?.removeAll()
+    private fun setupPreferenceListeners() {
+        findPreference<Preference>("pref_manage_accounts")?.setOnPreferenceClickListener {
+            val intent = Intent(Settings.ACTION_SYNC_SETTINGS)
+            startActivitySafelyIntent(intent, "Failed to launch sync in device settings")
+            true
+        }
+
+        findPreference<Preference>("pref_privacy")?.setOnPreferenceClickListener {
+            startActivitySafely(LegacyAccountSettingsActivity::class.java, "Failed to launch privacy activity")
+            true
+        }
+
+        findPreference<Preference>("pref_manage_history")?.setOnPreferenceClickListener {
+            openUrl("https://myactivity.google.com/product/youtube")
+            true
+        }
+
+        findPreference<Preference>("pref_your_data")?.setOnPreferenceClickListener {
+            openUrl("https://myaccount.google.com/yourdata/youtube")
+            true
+        }
     }
 
-    private fun updateSettings() {
-        val context = requireContext()
+    private fun startActivitySafelyIntent(intent: Intent, errorMessage: String) {
+        try {
+            startActivity(intent)
+        } catch (e: ActivityNotFoundException) {
+            Log.e(tag, errorMessage, e)
+        }
+    }
 
+    private fun startActivitySafely(activityClass: Class<*>, errorMessage: String) {
+        val intent = Intent(requireContext(), activityClass)
+        startActivitySafelyIntent(intent, errorMessage)
+    }
+
+    private fun openUrl(url: String) {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        startActivitySafelyIntent(intent, "Failed to open URL: $url")
+    }
+
+    private fun addAccountFab() {
+        fab = requireActivity().findViewById(R.id.preference_fab)
+        fab.text = getString(R.string.pref_accounts_add_account_title)
+        fab.setIconResource(R.drawable.ic_add_new_account)
+        fab.setOnClickListener {
+            startActivitySafely(LoginActivity::class.java, "Failed to launch login activity")
+        }
+        fab.show()
+    }
+
+    private fun refreshAccountSettings() {
+        val context = requireContext()
         val accountManager = AccountManager.get(context)
         val accounts = accountManager.getAccountsByType(AuthConstants.DEFAULT_ACCOUNT_TYPE)
 
@@ -140,7 +140,7 @@ class AccountsFragment : PreferenceFragmentCompat() {
                             order = 0
 
                             setOnPreferenceClickListener {
-                                showConfirmationDialog(account.name)
+                                showAccountRemovalDialog(account.name)
                                 true
                             }
                         }
@@ -159,7 +159,11 @@ class AccountsFragment : PreferenceFragmentCompat() {
         }
     }
 
-    private fun showConfirmationDialog(accountName: String) {
+    private fun clearAccountPreferences() {
+        findPreference<PreferenceCategory>("prefcat_current_accounts")?.removeAll()
+    }
+
+    private fun showAccountRemovalDialog(accountName: String) {
         AlertDialog.Builder(requireContext(), R.style.AppTheme_Dialog_Account)
             .setTitle(getString(R.string.dialog_title_remove_account))
             .setMessage(getString(R.string.dialog_message_remove_account))
@@ -174,22 +178,19 @@ class AccountsFragment : PreferenceFragmentCompat() {
         lifecycleScope.launch(Dispatchers.Main) {
             val accountManager = AccountManager.get(requireContext())
             val accounts = accountManager.getAccountsByType(AuthConstants.DEFAULT_ACCOUNT_TYPE)
-
             val accountToRemove = accounts.firstOrNull { it.name == accountName }
+
             accountToRemove?.let {
                 try {
                     val removedSuccessfully = withContext(Dispatchers.IO) {
                         accountManager.removeAccountExplicitly(it)
                     }
                     if (removedSuccessfully) {
-                        updateSettings()
-                        val toastMessage =
-                            getString(R.string.toast_remove_account_success, accountName)
-                        showToast(toastMessage)
+                        refreshAccountSettings()
+                        showToast(getString(R.string.toast_remove_account_success, accountName))
                     }
                 } catch (e: Exception) {
-                    Log.e(tag, "Error removing account: $accountName", e)
-                    showToast(getString(R.string.toast_remove_account_success))
+                    Log.e(tag, "Error removing account", e)
                 }
             }
         }
@@ -209,9 +210,11 @@ class AccountsFragment : PreferenceFragmentCompat() {
         }
     }
 
-    private fun getCircleBitmapDrawable(bitmap: Bitmap?) =
-        if (bitmap != null) RoundedBitmapDrawableFactory.create(resources, bitmap)
-            .also { it.isCircular = true } else null
+    private fun getCircleBitmapDrawable(bitmap: Bitmap?) = bitmap?.let {
+        RoundedBitmapDrawableFactory.create(resources, it).apply {
+            isCircular = true
+        }
+    }
 
     private fun showToast(message: String) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
