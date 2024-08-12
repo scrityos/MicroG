@@ -41,8 +41,7 @@
             android:ellipsize="marquee"
             android:gravity="center"
             android:singleLine="false"
-            android:textAppearance="?attr/textAppearanceTitleLarge"
-            android:textColor="?android:attr/textColorPrimary" />
+            android:textAppearance="?attr/textAppearanceTitleLarge" />
 
         <TextView
             android:id="@+id/version_name"
@@ -50,6 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="8dp"
+            android:maxLines="2"
             android:textAppearance="?attr/textAppearanceTitleMedium"
             android:textColor="?android:textColorPrimary" />
 
@@ -59,6 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="12dp"
+            android:maxLines="4"
             android:textAppearance="?attr/textAppearanceBodyMedium"
             android:textColor="?android:attr/textColorSecondary" />
 
