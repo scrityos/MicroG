@@ -26,13 +26,13 @@
 
 [ReVanced](https://github.com/ReVanced/revanced-patches)
 
+[ReVanced Extended](https://github.com/inotia00/revanced-patches)
+
 [ReVanced Extended (anddea)](https://github.com/anddea/revanced-patches)
 
 [ReVanced Extended (rufusin)](https://github.com/rufusin/revanced-patches)
 
 [YT Advanced (REX)](https://github.com/YT-Advanced/ReX-patches)
-
-[ReVanced Extended (RVX)](https://github.com/inotia00/revanced-patches)
 
 **Download**
 
@@ -51,6 +51,8 @@ alt='Donate with BMC'
 height="80">](https://www.buymeacoffee.com/wstxda)
 
 **Credits**
+
+[microG Project](https://github.com/microg) for GmsCore, alternative of Play Services. [wiki](https://github.com/microg/GmsCore/wiki)
 
 [Shadow578](https://github.com/shadow578) for the implementation of GmsCore for ReVanced
 
