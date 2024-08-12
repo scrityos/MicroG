@@ -119,6 +119,32 @@ class SettingsFragment : ResourceSettingsFragment() {
         }
     }
 
+    private fun isIconActivityVisible(activityClass: Class<*>): Boolean {
+        val packageManager = requireActivity().packageManager
+        val componentName = ComponentName(requireContext(), activityClass)
+        return when (packageManager.getComponentEnabledSetting(componentName)) {
+            PackageManager.COMPONENT_ENABLED_STATE_ENABLED -> true
+            else -> false
+        }
+    }
+
+    private fun iconActivityVisibility(activityClass: Class<*>, showActivity: Boolean) {
+        val packageManager = requireActivity().packageManager
+        val componentName = ComponentName(requireContext(), activityClass)
+
+        val newState = if (showActivity) PackageManager.COMPONENT_ENABLED_STATE_ENABLED
+        else PackageManager.COMPONENT_ENABLED_STATE_DISABLED
+
+        packageManager.setComponentEnabledSetting(
+            componentName, newState, PackageManager.DONT_KILL_APP
+        )
+    }
+
+    private fun updateHideLauncherIconSwitchState() {
+        val isActivityVisible = isIconActivityVisible(MainSettingsActivity::class.java)
+        findPreference<SwitchPreferenceCompat>(PREF_HIDE_LAUNCHER_ICON)?.isChecked = !isActivityVisible
+    }
+
     private fun SettingsProvider.Companion.Entry.createPreference(): Preference? {
         val preference = Preference(requireContext()).fillFromEntry(this)
         try {
@@ -153,18 +179,6 @@ class SettingsFragment : ResourceSettingsFragment() {
         return this
     }
 
-    private fun iconActivityVisibility(activityClass: Class<*>, showActivity: Boolean) {
-        val packageManager = requireActivity().packageManager
-        val componentName = ComponentName(requireContext(), activityClass)
-
-        val newState = if (showActivity) PackageManager.COMPONENT_ENABLED_STATE_ENABLED
-        else PackageManager.COMPONENT_ENABLED_STATE_DISABLED
-
-        packageManager.setComponentEnabledSetting(
-            componentName, newState, PackageManager.DONT_KILL_APP
-        )
-    }
-
     private fun openLink(url: String) {
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         try {
@@ -182,6 +196,8 @@ class SettingsFragment : ResourceSettingsFragment() {
         fab?.visibility = View.GONE
 
         updateBatteryOptimizationPreferenceVisibility()
+        updateHideLauncherIconSwitchState()
+
         val context = requireContext()
         if (GcmPrefs.get(requireContext()).isEnabled) {
             val database = GcmDatabase(context)
