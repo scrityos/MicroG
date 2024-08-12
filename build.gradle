@@ -7,12 +7,12 @@ buildscript {
     ext.applicationNamespace = "com.google.android.gms"
     ext.basePackageName = "app.revanced"
 
-    ext.annotationVersion = '1.8.0'
+    ext.annotationVersion = '1.8.2'
     ext.appcompatVersion = '1.7.0'
     ext.biometricVersion = '1.1.0'
     ext.coreVersion = '1.13.1'
-    ext.fragmentVersion = '1.8.1'
-    ext.lifecycleVersion = '2.8.3'
+    ext.fragmentVersion = '1.8.2'
+    ext.lifecycleVersion = '2.8.4'
     ext.loaderVersion = '1.1.0'
     ext.materialVersion = '1.12.0'
     ext.mediarouterVersion = '1.7.0'
@@ -27,7 +27,7 @@ buildscript {
 
     ext.cronetVersion = '119.6045.31'
     ext.okhttpVersion = '4.12.0'
-    ext.slf4jVersion = '2.0.13'
+    ext.slf4jVersion = '2.0.16'
     ext.volleyVersion = '1.2.1'
     ext.wearableVersion = '0.1.1'
     ext.wireVersion = '5.0.0'
@@ -36,7 +36,7 @@ buildscript {
 
     ext.androidBuildVersionTools = '34.0.0'
 
-    ext.androidMinSdk = 23
+    ext.androidMinSdk = 24
     ext.androidTargetSdk = 29
     ext.androidCompileSdk = 34
 
@@ -82,8 +82,8 @@ allprojects {
     apply plugin: 'idea'
 
     group = 'org.microg.gms'
-    ext.appVersionName = 5.6
-    ext.appVersionCode = 242662000
+    ext.appVersionName = 5.7
+    ext.appVersionCode = 243136000
     ext.baseVersion = ext.appVersionCode.toString()[0..1] + '.' + ext.appVersionCode.toString()[2..3] + '.' + ext.appVersionCode.toString()[4..5]
     version = ext.appVersionName+" GMS-"+ext.baseVersion.replaceAll("\\.", "")
     ext.isReleaseVersion = false

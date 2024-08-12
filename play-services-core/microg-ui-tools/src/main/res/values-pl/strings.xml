@@ -42,10 +42,6 @@
     <string name="about_android_support_v7_preference">Biblioteka wsparcia preferencji v7</string>
     <string name="about_android_support_license">Licencja Apache 2.0, Android Open Source Project</string>
 
-    <!-- Kontroler znacznika UpdateChecker -->
-
-    <string name="github_tag_version">5.6</string>
-
     <!-- Aktualizator -->
 
     <string name="check_updates">Sprawdź aktualizacje</string>

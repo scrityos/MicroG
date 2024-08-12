@@ -42,10 +42,6 @@
     <string name="about_android_support_v7_preference">مكتبة دعم v7 preference</string>
     <string name="about_android_support_license">رخصة Apache 2.0، مشروع Android Open Source</string>
 
-    <!-- UpdateChecker tag controller-->
-
-    <string name="github_tag_version">5.6</string>
-
     <!-- Updater strings-->
 
     <string name="check_updates">تحقق من التحديثات</string>
