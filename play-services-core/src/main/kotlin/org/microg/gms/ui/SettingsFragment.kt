@@ -39,7 +39,7 @@ class SettingsFragment : ResourceSettingsFragment() {
         const val PREF_GCM = "pref_gcm"
         const val PREF_CHECKIN = "pref_checkin"
         const val PREF_ACCOUNTS = "pref_accounts"
-        const val PREF_CAST_HIDE_LAUNCHER_ICON = "pref_hide_launcher_icon"
+        const val PREF_HIDE_LAUNCHER_ICON = "pref_hide_launcher_icon"
         const val PREF_DEVELOPER = "pref_developer"
         const val PREF_GITHUB = "pref_github"
         const val PREF_IGNORE_BATTERY_OPTIMIZATION = "pref_ignore_battery_optimization"
@@ -64,10 +64,10 @@ class SettingsFragment : ResourceSettingsFragment() {
             findNavController().navigate(requireContext(), R.id.openAbout)
             true
         }
-        findPreference<SwitchPreferenceCompat>(PREF_CAST_HIDE_LAUNCHER_ICON)?.apply {
+        findPreference<SwitchPreferenceCompat>(PREF_HIDE_LAUNCHER_ICON)?.apply {
             setOnPreferenceChangeListener { _, newValue ->
                 val isEnabled = newValue as Boolean
-                updateLauncherIconVisibility(isEnabled)
+                iconActivityVisibility(MainSettingsActivity::class.java, !isEnabled)
                 true
             }
         }
@@ -153,20 +153,15 @@ class SettingsFragment : ResourceSettingsFragment() {
         return this
     }
 
-    private fun updateLauncherIconVisibility(isEnabled: Boolean) {
-        val mainSettingsComponent = ComponentName(requireActivity(), "org.microg.gms.ui.MainSettingsActivity")
-        val launcherSettingsComponent = ComponentName(requireActivity(), "org.microg.gms.ui.SettingsActivityLauncher")
+    private fun iconActivityVisibility(activityClass: Class<*>, showActivity: Boolean) {
+        val packageManager = requireActivity().packageManager
+        val componentName = ComponentName(requireContext(), activityClass)
 
-        requireActivity().packageManager.setComponentEnabledSetting(mainSettingsComponent,
-            if (isEnabled) PackageManager.COMPONENT_ENABLED_STATE_ENABLED
-            else PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
-            PackageManager.DONT_KILL_APP
-        )
+        val newState = if (showActivity) PackageManager.COMPONENT_ENABLED_STATE_ENABLED
+        else PackageManager.COMPONENT_ENABLED_STATE_DISABLED
 
-        requireActivity().packageManager.setComponentEnabledSetting(launcherSettingsComponent,
-            if (isEnabled) PackageManager.COMPONENT_ENABLED_STATE_DISABLED
-            else PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
-            PackageManager.DONT_KILL_APP
+        packageManager.setComponentEnabledSetting(
+            componentName, newState, PackageManager.DONT_KILL_APP
         )
     }
 
