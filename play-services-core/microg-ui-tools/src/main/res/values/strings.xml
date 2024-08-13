@@ -44,7 +44,7 @@
 
     <!-- UpdateChecker tag controller-->
 
-    <string name="github_tag_version">5.7</string>
+    <string name="github_tag_version">5.8</string>
 
     <!-- Updater strings-->
 
