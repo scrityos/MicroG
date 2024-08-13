@@ -113,6 +113,17 @@
 
     <style name="AppTheme" parent="AppThemeBase" />
 
+    <style name="AppThemeTransparent" parent="AppThemeBase">
+        <item name="background">@android:color/transparent</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+    </style>
+
     <style name="LoginTheme" parent="AppThemeBase" />
 
     <style name="AppThemeBase" parent="Theme.Base.DayNight.NoActionBar">
