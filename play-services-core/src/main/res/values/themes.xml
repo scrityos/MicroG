@@ -96,13 +96,9 @@
 
     <!-- Text application theme -->
 
-    <style name="Theme.TextAppearance.PreferenceTitle" parent="@android:style/TextAppearance.Material.Subhead">
-        <item name="android:textSize">16.0sp</item>
-    </style>
+    <style name="Theme.TextAppearance.PreferenceTitle" parent="@style/TextAppearance.Material3.TitleMedium" />
 
-    <style name="Theme.TextAppearance.CategoryTitle" parent="@android:style/TextAppearance.DeviceDefault.Medium">
-        <item name="android:textSize">14.0sp</item>
-    </style>
+    <style name="Theme.TextAppearance.CategoryTitle" parent="@style/TextAppearance.Material3.LabelLarge" />
 
     <style name="Theme.PositiveButton.Warning" parent="Widget.Material3.Button.TextButton.Dialog">
         <item name="android:textColor">?colorError</item>
