@@ -17,15 +17,12 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <plurals name="gcm_registered_apps_counter">
-        <item quantity="one"><xliff:g example="1">%1$d</xliff:g> Aplikasi terdaftar</item>
         <item quantity="other"><xliff:g example="123">%1$d</xliff:g> Aplikasi terdaftar</item>
     </plurals>
     <plurals name="cond_perm_summary">
-        <item quantity="one">Satu izin yang diperlukan untuk fungsionalitas yang tepat dari Layanan microG belum diberikan.</item>
         <item quantity="other">Beberapa izin yang diperlukan untuk fungsionalitas yang tepat dari Layanan microG belum diberikan.</item>
     </plurals>
     <plurals name="cond_perm_action">
-        <item quantity="one">Minta izin yang hilang</item>
         <item quantity="other">Minta izin yang hilang</item>
     </plurals>
 </resources>
