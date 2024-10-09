@@ -16,7 +16,7 @@
 
 package org.microg.gms.ui;
 
-import android.content.Context;
+//import android.content.Context;
 import android.content.Intent;
 //import android.content.pm.PackageManager;
 //import android.content.pm.PermissionGroupInfo;
@@ -30,20 +30,18 @@ import android.view.LayoutInflater;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import org.microg.gms.common.Constants;
-//import org.microg.tools.selfcheck.InstalledPackagesChecks;
+import org.microg.tools.selfcheck.InstalledPackagesChecks;
 //import org.microg.tools.selfcheck.NlpOsCompatChecks;
 //import org.microg.tools.selfcheck.NlpStatusChecks;
 //import org.microg.tools.selfcheck.PermissionCheckGroup;
-import org.microg.tools.selfcheck.RomSpoofSignatureChecks;
+//import org.microg.tools.selfcheck.RomSpoofSignatureChecks;
 import org.microg.tools.selfcheck.SelfCheckGroup;
 import org.microg.tools.selfcheck.SystemChecks;
 import org.microg.tools.ui.AbstractSelfCheckFragment;
 import org.microg.tools.ui.AbstractSettingsActivity;
 
-//import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 //import static android.Manifest.permission.ACCESS_BACKGROUND_LOCATION;
 //import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
@@ -54,28 +52,27 @@ import java.util.Objects;
 //import static android.Manifest.permission.READ_SMS;
 //import static android.Manifest.permission.RECEIVE_SMS;
 //import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
+import static android.os.Build.VERSION.SDK_INT;
 //import static android.os.Build.VERSION_CODES.LOLLIPOP_MR1;
 
 public class SelfCheckFragment extends AbstractSelfCheckFragment {
 
     @Override
-    protected void prepareSelfCheckList(Context context, List<SelfCheckGroup> checks) {
-        if (Objects.equals(context.getPackageName(), Constants.GMS_PACKAGE_NAME)) {
-            checks.add(new RomSpoofSignatureChecks());
-        }
-//        checks.add(new InstalledPackagesChecks());
+    protected void prepareSelfCheckList(List<SelfCheckGroup> checks) {
+//        checks.add(new RomSpoofSignatureChecks());
+        checks.add(new InstalledPackagesChecks());
 //        if (SDK_INT >= 23) {
 //            List<String> permissions = new ArrayList<>();
-//            permissions.add(ACCESS_COARSE_LOCATION);
-//            permissions.add(ACCESS_FINE_LOCATION);
-//            if (SDK_INT >= 29) {
-//                permissions.add(ACCESS_BACKGROUND_LOCATION);
-//            }
-//            permissions.add(READ_EXTERNAL_STORAGE);
-//            permissions.add(WRITE_EXTERNAL_STORAGE);
-//            permissions.add(GET_ACCOUNTS);
-//            permissions.add(READ_PHONE_STATE);
-//            permissions.add(RECEIVE_SMS);
+////            permissions.add(ACCESS_COARSE_LOCATION);
+////            permissions.add(ACCESS_FINE_LOCATION);
+////            if (SDK_INT >= 29) {
+////                permissions.add(ACCESS_BACKGROUND_LOCATION);
+////            }
+////            permissions.add(READ_EXTERNAL_STORAGE);
+////            permissions.add(WRITE_EXTERNAL_STORAGE);
+////            permissions.add(GET_ACCOUNTS);
+////            permissions.add(READ_PHONE_STATE);
+////            permissions.add(RECEIVE_SMS);
 //            checks.add(new PermissionCheckGroup(permissions.toArray(new String[0])) {
 //                @Override
 //                public void doChecks(Context context, ResultCollector collector) {
@@ -99,8 +96,10 @@ public class SelfCheckFragment extends AbstractSelfCheckFragment {
 //                }
 //            });
 //        }
-        checks.add(new SystemChecks());
-        //        checks.add(new NlpOsCompatChecks());
+        if (SDK_INT >= Build.VERSION_CODES.M) {
+            checks.add(new SystemChecks());
+        }
+//        checks.add(new NlpOsCompatChecks());
 //        checks.add(new NlpStatusChecks());
     }
 

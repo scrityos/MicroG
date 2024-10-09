@@ -16,7 +16,6 @@
 
 package org.microg.tools.ui;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -54,11 +53,11 @@ public abstract class AbstractSelfCheckFragment extends Fragment {
         return scrollRoot;
     }
 
-    protected abstract void prepareSelfCheckList(Context context, List<SelfCheckGroup> checks);
+    protected abstract void prepareSelfCheckList(List<SelfCheckGroup> checks);
 
     protected void reset(LayoutInflater inflater) {
         List<SelfCheckGroup> selfCheckGroupList = new ArrayList<SelfCheckGroup>();
-        prepareSelfCheckList(getContext(), selfCheckGroupList);
+        prepareSelfCheckList(selfCheckGroupList);
 
         root.removeAllViews();
         for (SelfCheckGroup group : selfCheckGroupList) {
