@@ -4,12 +4,12 @@
   ~ SPDX-License-Identifier: Apache-2.0
   -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="gms_app_name">MicroG</string>
-    <string name="gms_settings_name">MicroG Settings</string>
-    <string name="gms_settings_summary">Setup MicroG services</string>
+    <string name="gms_app_name">GmsLite</string>
+    <string name="gms_settings_name">Gms Lite Settings</string>
+    <string name="gms_settings_summary">Setup GmsLite services</string>
 
     <string name="just_a_sec">Just a sec…</string>
-    <string name="ask_permission_tos">By continuing, you allow this app and Google to use your information in accordance with their respective terms of service and privacy policies</string>
+    <string name="ask_permission_tos">By continuing, you allow Gms Lite and Google to use your information in accordance with their respective terms of service and privacy policies</string>
     <string name="ask_scope_permission_title"><xliff:g example="F-Droid">%1$s</xliff:g> would like to:</string>
     <string name="ask_service_permission_title"><xliff:g example="F-Droid">%1$s</xliff:g> would like to use:</string>
 
@@ -19,7 +19,7 @@
     <string name="prefcat_authentication">Authentication</string>
 
     <string name="sorry">Sorry…</string>
-    <string name="auth_before_connect">"Connect Google account with MicroG.
+    <string name="auth_before_connect">"Connect Google account with Gms Lite.
 
 Let's connect to a Google account, use the <b>Sign in</b> button or use the <b>Huawei</b> button if you have a device with this manufacturer. By pressing on one of the buttons you will be redirected to the page to login to your account."</string>
     <string name="auth_sign_in">Sign in</string>
@@ -28,7 +28,7 @@ Let's connect to a Google account, use the <b>Sign in</b> button or use the <b>H
 This can take a few seconds"</string>
     <string name="no_network_error_desc">"You don’t have a network connection.
 
-This could be a temporary problem or your Android device may not be provisioned for data services. Try again when connected to a mobile network, or connect to a Wi-Fi network"</string>
+This could be a temporary problem or your Android device may not be provisioned for data services. Try again when connected to a mobile network, or connected to a Wi-Fi"</string>
     <string name="auth_general_error_desc">"There was a problem communicating with Google servers.
 
 Try again later"</string>
@@ -45,7 +45,7 @@ This can take a couple of minutes"</string>
     <string name="signin_picker_add_account_label">Add another account</string>
     <string name="signin_confirm_title">Allow to sign you in to <xliff:g example="F-Droid">%1$s</xliff:g></string>
     <string name="signin_confirm_button_text">Allow and share</string>
-    <string name="signin_subtext_sharing">To continue, MicroG will share name, email address and profile picture of your Google Account with <xliff:g example="F-Droid">%1$s</xliff:g></string>
+    <string name="signin_subtext_sharing">To continue, Gms Lite will share name, email address and profile picture of your Google Account with <xliff:g example="F-Droid">%1$s</xliff:g></string>
 
     <string name="perm_status_broadcast_label">listen to internal status broadcasts</string>
     <string name="perm_gsf_read_gservices_label">read Google service configuration</string>
@@ -69,7 +69,7 @@ This can take a couple of minutes"</string>
     <string name="self_check_cat_system">System</string>
 
     <string name="self_check_name_fake_sig_perm">System has signature spoofing support</string>
-    <string name="self_check_resolution_fake_sig_perm">Your ROM has no native support for signature spoofing. You can still use Xposed or other systems to spoof signature. Please check the documentation on which ROMs do support signature spoofing and how to use MicroG on ROMs that do not</string>
+    <string name="self_check_resolution_fake_sig_perm">Your ROM has no native support for signature spoofing. You can still use Xposed or other systems to spoof signature. Please check the documentation on which ROMs do support signature spoofing and how to use Gms Lite on ROMs that do not</string>
     <string name="self_check_name_perm_granted">System grants signature spoofing permission</string>
     <string name="self_check_resolution_perm_granted">This is a strong indicator that the ROM does support signature spoofing, but requires further action to activate it. Please check the documentation on which steps might be required</string>
     <string name="self_check_name_system_spoofs">System spoofs signature</string>
@@ -97,7 +97,7 @@ This can take a couple of minutes"</string>
     <string name="prefcat_about">About</string>
 
     <string name="cond_gcm_bat_title">Battery optimizations enabled</string>
-    <string name="cond_gcm_bat_summary">You enabled Cloud Messaging but have battery optimizations active for MicroG Services. For push notifications to arrive you should ignore battery optimizations</string>
+    <string name="cond_gcm_bat_summary">You enabled Cloud Messaging but have battery optimizations active for Gms Lite Services. For push notifications to arrive you should ignore battery optimizations</string>
     <string name="cond_gcm_bat_action">Ignore optimizations</string>
     <string name="cond_perm_title">Permission missing</string>
 
@@ -126,7 +126,7 @@ This can take a couple of minutes"</string>
     <string name="pref_gcm_confirm_new_apps_title">Confirm new apps</string>
     <string name="pref_gcm_confirm_new_apps_summary">Ask before registering a new app to receive push notifications</string>
 
-    <string name="pref_about_title">About MicroG</string>
+    <string name="pref_about_title">About Gms Lite</string>
 
     <string name="gcm_unregister_app">Unregister</string>
     <string name="gcm_no_message_yet">No messages received so far</string>
@@ -196,11 +196,11 @@ This can take a couple of minutes"</string>
 
     <!-- Settings options strings-->
 
-    <string name="wstxda">WSTxda</string>
+    <string name="wstxda">abhiram79</string>
     <string name="developer">Developer</string>
-    <string name="developer_link">https://github.com/WSTxda</string>
+    <string name="developer_link">https://github.com/abhiram79</string>
     <string name="github">GitHub</string>
-    <string name="github_source">Source code repository</string>
-    <string name="github_link">https://github.com/WSTxda/MicroG-RE</string>
+    <string name="github_source">View Source</string>
+    <string name="github_link">https://github.com/abhiram79/Gms_core</string>
     <string name="pref_hide_launcher_icon">Hide icon in launcher</string>
 </resources>
