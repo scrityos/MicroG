@@ -68,7 +68,7 @@ class SettingsFragment : ResourceSettingsFragment() {
             setOnPreferenceChangeListener { _, newValue ->
                 val isEnabled = newValue as Boolean
                 iconActivityVisibility(MainSettingsActivity::class.java, !isEnabled)
-                false
+                true
             }
         }
         findPreference<Preference>(PREF_DEVELOPER)?.onPreferenceClickListener = Preference.OnPreferenceClickListener {
